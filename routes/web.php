@@ -19,9 +19,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'setting:registration'] , function(){
 	
 	Auth::routes();
-	Route::get('/user/edit', 'auth\registercontroller@edit');
-	Route::put('/user/edit', 'auth\registercontroller@update');
-
+	
+	Route::group(['middleware' => 'activeuser:active'] , function(){
+		Route::get('/user/edit', 'auth\registercontroller@edit');
+		Route::put('/user/edit', 'auth\registercontroller@update');
+	});
 });
  
 Route::group(['middleware' => 'setting:contact'] , function(){
@@ -37,10 +39,24 @@ Route::group(['middleware' => 'setting:page'] , function(){
 
 }); 
 
+ 
+Route::group(['middleware' => 'setting:category'] , function(){ 
+	
+	Route::get('/category/{name}', 'categorycontroller@show');
+
+}); 
+
+ 
+Route::group(['middleware' => 'setting:product'] , function(){ 
+	
+	Route::get('/product/{id}', 'Admin\productcontroller@show');
+
+}); 
 
 Route::get('/test',  function(){   /// test page
 
 	return view('test');
 
 }); 
-Route::get('/category/{name}', 'categorycontroller@show');
+// Route::get('/category/{name}', 'categorycontroller@show');
+	Route::get('/cart', 'cartcontroller@show');

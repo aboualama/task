@@ -4,9 +4,15 @@
         <div class="container">
 
         @if($registration_setting == 'active')
-            <div class="w3l_login">
-                <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-            </div> 
+            @guest
+
+                <div class="w3l_login">
+                    <a href="#" data-toggle="modal" data-target="#myModal88">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </a>
+                </div>       
+
+            @endguest 
         @endif            
 
             <div class="w3l_logo">
@@ -23,7 +29,7 @@
                 </div>
             </div>
             <div class="cart box_1">
-                <a href="checkout.html">
+                <a href="{{url('/cart')}}">
                     <div class="total">
                     <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                     <img src="{{ asset('web') }}/images/bag.png" alt="" />

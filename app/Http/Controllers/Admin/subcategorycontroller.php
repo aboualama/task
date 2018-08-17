@@ -193,9 +193,9 @@ class subcategorycontroller extends Controller
     public function destroy($id)
     {
         $subcategory     = subcategory::find($id);    
-            if($subcategory->img !==  'default.jpg'){
-                Storage::delete('subcategory/'.$subcategory->img);       
-            } 
+        if($subcategory->img !==  'default.jpg'){
+            Storage::delete('subcategory/'.$subcategory->img);       
+        } 
         Storage::delete('subcategory/'.$subcategory->r_img);    
         Storage::delete('subcategory/'.$subcategory->l_img); 
         $subcategory->delete();

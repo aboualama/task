@@ -31,10 +31,10 @@ class productsTableSeeder extends Seeder
 			 		'name'           => 'mobile' ,    
 					'description'    => str_random(10),
 					'price'          => rand(1 , 1000), 
-					'subcategory_id' =>  1 ,  
+					'subcategory_id' =>  rand(1 , 6),  
 					'brand_id'       =>  1 , 
 					'admin_id'       =>  1 ,  
-					'photo'          => rand() . '.jpg',   
+					'photo'          =>  rand(10 , 40) . '.jpg',   
 	             ];
 	        }
 

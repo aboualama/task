@@ -27,11 +27,12 @@ class ViewComposer {
    		$view->with('category_setting', DB::table('settings')->where('name' , 'category')->value('status') );
    		$view->with('subcategory_setting', DB::table('settings')->where('name' , 'subcategory')->value('status') );
    		$view->with('brand_setting', DB::table('settings')->where('name' , 'brand')->value('status') );
-   		$view->with('product_setting', DB::table('settings')->where('name' , 'product')->value('status') );
+      $view->with('product_setting', DB::table('settings')->where('name' , 'product')->value('status') );
+   		$view->with('comment_setting', DB::table('settings')->where('name' , 'comment')->value('status') );
     
  
     }
 }
 
-		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand'
+		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand' , 'comment'
 

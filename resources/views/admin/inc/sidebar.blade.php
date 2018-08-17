@@ -161,6 +161,22 @@
           </li> 
         @endif
 
+ 
+        @if($comment_setting == 'active')
+          <li class="treeview ">
+            <a href="#">
+              <i class="fa fa-phone"></i> <span>comment</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a> 
+            <ul class="treeview-menu"> 
+              <li><a href="/admin/comment"><i class="fa fa-circle-o"></i>comment</a></li>   
+            </ul>
+          </li> 
+        @endif
+
+
 
   
 

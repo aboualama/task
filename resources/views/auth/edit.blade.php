@@ -12,9 +12,9 @@
                         {{ csrf_field() }} {{ method_field('PUT') }}
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                            <label for="first_name" class="col-md-4 control-label">First name</label>
+                            <label for="first_name" class="col-md-3 control-label">First name</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="first_name" type="text" class="form-control" name="first_name" value="{{ $user->first_name  }}" required autofocus>
 
                                 @if ($errors->has('first_name'))
@@ -26,9 +26,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Last Name</label>
+                            <label for="name" class="col-md-3 control-label">Last Name</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="last_name" type="text" class="form-control" name="last_name" value="{{ $user->last_name }}" required autofocus>
 
                                 @if ($errors->has('last_name'))
@@ -40,9 +40,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-3 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $user->email  }}"  required>
 
                                 @if ($errors->has('email'))
@@ -54,9 +54,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-3 control-label">Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="password" type="password" class="form-control" name="password" >
 
                                 @if ($errors->has('password'))
@@ -68,9 +68,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-3 control-label">Confirm Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
                             </div>
                         </div>
@@ -78,9 +78,9 @@
 
 
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                            <label for="gender" class="col-md-4 control-label">Gender</label>
+                            <label for="gender" class="col-md-3 control-label">Gender</label>
 
-                            <div class="col-md-6">  
+                            <div class="col-md-9">  
                                     <select id="gender" name="gender" class="form-control" placeholder="gender" > 
                                         <optgroup label="Gender">
                                             <option value="male" {{ $user->gender == 'male'?'selected':''}} >Male</option>
@@ -97,9 +97,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label for="date" class="col-md-4 control-label">Date of Birth </label>
+                            <label for="date" class="col-md-3 control-label">Date of Birth </label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="date" type="date" class="form-control" name="date" value="{{ $user->date }}" >
 
                                 @if ($errors->has('date'))
@@ -112,9 +112,9 @@
 
 
                         <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
-                            <label for="bio" class="col-md-4 control-label">Bio</label>
+                            <label for="bio" class="col-md-3 control-label">Bio</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <textarea id="bio" type="text" class="form-control" name="bio" required autofocus>{{ $user->bio }}</textarea>
 
                                 @if ($errors->has('bio'))
@@ -129,9 +129,9 @@
 
 
         <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-            <label for="status" class="col-md-4 control-label">Status</label>
+            <label for="status" class="col-md-3 control-label">Status</label>
 
-            <div class="col-md-6">  
+            <div class="col-md-9">  
                     <select id="status" name="status" class="form-control" placeholder="status" disabled="disabled"> 
                         <optgroup label="Status">
                             <option value="active" {{ $user->status == 'active'?'selected':''}} >active</option>
@@ -164,7 +164,7 @@
 
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-3">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
@@ -172,7 +172,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </div>

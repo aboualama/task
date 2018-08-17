@@ -111,6 +111,15 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function(){
 		Route::put('/product/edit/{id}', 'productController@update');   
 		Route::delete('/product/delete/{id}', 'productController@destroy' );
 
+
+/////// PRODUCT //////////  
+		Route::get('/comment', 'commentController@index');
+		// Route::get('/add/comment', 'commentController@create');
+		Route::post('/a/comment', 'commentController@store');
+		Route::get('/comment/edit/{id}', 'commentController@edit');
+		Route::put('/comment/edit/{id}', 'commentController@update');   
+		Route::delete('/comment/delete/{id}', 'commentController@destroy' );
+
 	});
 });
 

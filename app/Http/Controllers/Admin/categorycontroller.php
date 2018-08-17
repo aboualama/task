@@ -14,9 +14,9 @@ class categorycontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryDataTable $product)
+    public function index(CategoryDataTable $category)
     {
-        return $product->render('admin.category.category' , ['title' => 'Category Control']); 
+        return $category->render('admin.category.category' , ['title' => 'Category Control']); 
     }
 
     /**

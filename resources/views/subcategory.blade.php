@@ -176,6 +176,21 @@
                     </div>
                     <div class="clearfix"> </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div class="w3ls_dresses_grid_right_grid2">
                         <div class="w3ls_dresses_grid_right_grid2_left">
                             <h3>Showing Results: 0-1</h3>
@@ -192,18 +207,19 @@
                         </div>
                         <div class="clearfix"> </div>
                     </div>
+
+
+
+
                     <div class="w3ls_dresses_grid_right_grid3">
+
+
+                    @foreach($products as $product)
+
                         <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
                             <div class="agile_ecommerce_tab_left dresses_grid">
-                                <div class="hs-wrapper hs-wrapper2">
-                                    <img src="{{ asset('web') }}/images/j1.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j2.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j3.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j4.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j5.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j6.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j7.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j8.jpg" alt=" " class="img-responsive" />
+                                <div class=" hs-wrapper2" style="position: relative;  margin: 0 auto; overflow: hidden;">
+                                    <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom w3_hs_bottom_sub1">
                                         <ul>
                                             <li>
@@ -212,9 +228,9 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">Brown Solid Chinos</a></h5>
+                                <h5><a href="{{url('product')}}/{{$product->id}}">{{$product->name}}</a></h5>
                                 <div class="simpleCart_shelfItem">
-                                    <p><span>$420</span> <i class="item_price">$340</i></p>
+                                    <p><span>$420</span> <i class="item_price">{{$product->price}}</i></p>
                                     <p><a class="item_add" href="#">Add to cart</a></p>
                                 </div>
                                 <div class="dresses_grid_pos">
@@ -222,6 +238,17 @@
                                 </div>
                             </div>
                         </div>
+
+                    @endforeach
+                        
+
+
+
+
+
+{{-- 
+
+
                         <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
                             <div class="agile_ecommerce_tab_left dresses_grid">
                                 <div class="hs-wrapper hs-wrapper2">
@@ -443,70 +470,25 @@
                             </div>
                         </div>
                         <div class="clearfix"> </div>
-                    </div>
-                    <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                        
-                                </div>
-                                <section>
-                                    <div class="modal-body">
-                                        <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/39.jpg" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="col-md-7 modal_body_right">
-                                            <h4>a good look women's Long Skirt</h4>
-                                            <p>Ut enim ad minim veniam, quis nostrud 
-                                                exercitation ullamco laboris nisi ut aliquip ex ea 
-                                                commodo consequat.Duis aute irure dolor in 
-                                                reprehenderit in voluptate velit esse cillum dolore 
-                                                eu fugiat nulla pariatur. Excepteur sint occaecat 
-                                                cupidatat non proident, sunt in culpa qui officia 
-                                                deserunt mollit anim id est laborum.</p>
-                                            <div class="rating">
-                                                <div class="rating-left">
-                                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="rating-left">
-                                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="rating-left">
-                                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="rating-left">
-                                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="rating-left">
-                                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="clearfix"> </div>
-                                            </div>
-                                            <div class="modal_body_right_cart simpleCart_shelfItem">
-                                                <p><span>$320</span> <i class="item_price">$250</i></p>
-                                                <p><a class="item_add" href="#">Add to cart</a></p>
-                                            </div>
-                                            <h5>Color</h5>
-                                            <div class="color-quality">
-                                                <ul>
-                                                    <li><a href="#"><span></span>Red</a></li>
-                                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
+
+
+ 
+
+
+
+
+ 
                 </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
-    </div>
+    </div>  
+
+
+
+{{-- modal for subcategory products --}}
+
     <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -516,13 +498,11 @@
                 <section>
                     <div class="modal-body">
                         <div class="col-md-5 modal_body_left">
-                            <img src="{{ asset('web') }}/images/63.jpg" alt=" " class="img-responsive" />
+                            <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
-                            <h4>a good look black women's jeans</h4>
-                            <p>Ut enim ad minim veniam, quis nostrud 
-                                exercitation ullamco laboris nisi ut aliquip ex ea 
-                                commodo consequat.Duis aute irure dolor in 
+                            <h4>a good look black women's jeans  {{$product->name}}</h4>
+                            <p>{{$product->description}} . vv Duis aute irure dolor in 
                                 reprehenderit in voluptate velit esse cillum dolore 
                                 eu fugiat nulla pariatur. Excepteur sint occaecat 
                                 cupidatat non proident, sunt in culpa qui officia 
@@ -546,7 +526,7 @@
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="modal_body_right_cart simpleCart_shelfItem">
-                                <p><span>$320</span> <i class="item_price">$250</i></p>
+                                <p><span>$320</span> <i class="item_price">${{$product->price}}</i></p>
                                 <p><a class="item_add" href="#">Add to cart</a></p>
                             </div>
                             <h5>Color</h5>
@@ -565,6 +545,75 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+{{-- modal for related products --}}
+
+    <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                        
+                </div>
+                <section>
+                    <div class="modal-body">
+                        <div class="col-md-5 modal_body_left">
+                            <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="col-md-7 modal_body_right">
+                            <h4>a good look women's {{$product->name}}</h4>
+                            <p>{{$product->description}}.Duis aute irure dolor in 
+                                reprehenderit in voluptate velit esse cillum dolore 
+                                eu fugiat nulla pariatur. Excepteur sint occaecat 
+                                cupidatat non proident, sunt in culpa qui officia 
+                                deserunt mollit anim id est laborum.</p>
+                            <div class="rating">
+                                <div class="rating-left">
+                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="modal_body_right_cart simpleCart_shelfItem">
+                                <p><span>$320</span> <i class="item_price">${{$product->price}}</i></p>
+                                <p><a class="item_add" href="#">Add to cart</a></p>
+                            </div>
+                            <h5>Color</h5>
+                            <div class="color-quality">
+                                <ul>
+                                    <li><a href="#"><span></span>Red</a></li>
+                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="w3l_related_products">
         <div class="container">
             <h3>Related Products</h3>

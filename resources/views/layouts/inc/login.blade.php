@@ -22,36 +22,79 @@
                                     <ul>
                                         <li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
                                         <li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-                                    </ul>       
-                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                        <div class="facts">
-                                            <div class="register">
-                                                <form action="#" method="post">         
-                                                    <input name="Email" placeholder="Email Address" type="text" required="">                        
-                                                    <input name="Password" placeholder="Password" type="password" required="">                                      
-                                                    <div class="sign-up">
-                                                        <input type="submit" value="Sign in"/>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div> 
-                                    </div>  
+                                    </ul>      
 
-                                    <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-                                        <div class="facts">
-                                            <div class="register">
-                                                <form action="#" method="post">         
-                                                    <input placeholder="Name" name="Name" type="text" required="">
-                                                    <input placeholder="Email Address" name="Email" type="email" required="">   
-                                                    <input placeholder="Password" name="Password" type="password" required="">  
-                                                    <input placeholder="Confirm Password" name="Password" type="password" required="">
-                                                    <div class="sign-up">
-                                                        <input type="submit" value="Create Account"/>
-                                                    </div>
-                                                </form>
-                                            </div>
+
+
+
+                                <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                    <div class="facts">
+                                        <div class="register">
+                                            <form action="{{ URL('login') }}" method="post">  
+                                                {{ csrf_field() }}       
+                                                <input name="email" placeholder="Email Address" type="email" required="">                        
+                                                <input name="password" placeholder="Password" type="password" required="">                                      
+                                                <div class="sign-up">
+                                                    <input type="submit" value="Sign in"/>
+                                                </div>
+                                            </form>
                                         </div>
-                                    </div>                                                            
+                                    </div> 
+                                </div>  
+
+
+
+
+
+                                <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+                                    <div class="facts">
+                                        <div class="register">
+                                            <form   method="post" action="{{ URL('register') }}">
+                                                {{ csrf_field() }}     
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input placeholder="First Name" name="first_name" type="text" required="">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input placeholder="Last Name" name="last_name" type="text" required="">
+                                                    </div>
+                                                </div>    
+
+                                                <input placeholder="Email Address" name="email" type="email" required="">        
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input placeholder="Password" name="password" type="password" >  
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input placeholder="Confirm Password" name="password_confirmation" type="password">
+                                                    </div>
+                                                </div>  
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input placeholder="Password" name="date" type="date" 
+                                                          style="background: #f5f5f5; margin-top: 14px; padding: 0 10px; 
+                                                               width: 100%; border: 1px solid #DFDFDF;line-height: 38px;">  
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select id="status" name="gender" class="form-control" placeholder="    status" style="width: 100%; background: #f5f5f5; margin-top: 14px; padding: 0 10px; border: 1px solid #DFDFDF; height: 42px;border-radius: inherit; box-shadow: none;" > 
+                                                            <option selected>Gender ...</option> 
+                                                            <option value="male" >-- Male</option>
+                                                            <option value="female" >-- Female</option>     
+                                                        </select>
+                                                    </div>
+                                                </div> 
+
+                                             <input placeholder="Bio" name="bio" type="text" required="" style="margin-top:14px;">
+
+                                                <div class="sign-up">
+                                                    <input type="submit" value="Create Account"/>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>                                                            
                                 </div>  
                             </div>
                             <script src="{{ asset('web') }}/js/easyResponsiveTabs.js" type="text/javascript"></script>
@@ -95,14 +138,14 @@
     @else   
 
     {{-- user section --}}
-
-    
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+ 
+    <ul style= "position: relative; top: 35px; left: 50px; float: left;" >
+        <li class="dropdown" style= " border: 1px solid #eee; padding: 10px;  list-style: none;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre style= " color: #ff9b05; text-decoration: none">
                 {{ Auth::user()->first_name }} <span class="caret"></span>
             </a>
 
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style= "position: absolute; top: 40px; left: -1px; box-shadow: none; border: 1px solid #eee; border-radius: inherit; ">
                 <li><a href="{{ url('/user/edit') }}">Edit</a></li>
                 <li>
                     <a href="{{ route('logout') }}"
@@ -118,7 +161,7 @@
             </ul>
         </li>
 
-
+ </ul>
     @endguest 
 
  

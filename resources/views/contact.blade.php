@@ -78,32 +78,34 @@
  
 @endsection
 
-
-@push('js') 
-
+ 
+@push('js')  
     <script>
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat:  {{ $contact['lat'] }} , lan: {{ $contact['lan'] }} },
-          zoom: 6
+          center: {lat:  {{ $contact['lat'] }} , lng: {{ $contact['lan'] }} },
+          zoom: 15 
         }); 
 
-        var location =  {lat:  {{ $contact['lat'] }} , lan: {{ $contact['lan'] }} };
+        var location =  {lat:  {{ $contact['lat'] }} , lng: {{ $contact['lan'] }} };
         var marker = new google.maps.Marker({
         position: location,
         map: map,
         }); 
 
 
-        var contentString = '<div id="content">'+
+      var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Lorem Ipsum</h1>'+
-      '<div id="bodyContent">'+
+      '<div id="bodyContent" class="row">'+
+      '<div class=" col-md-8">'+
       '<p><b>Lorem Ipsum</b>, is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>'+
       '<p>Attribution: Uluru'+
       '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '<div class=" col-md-4">'+ 'desktop publishing '+'</div>'+
       '</div>'+
       '</div>';
 
@@ -117,7 +119,28 @@
       }
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1siTilE56jaeupzD275WXOrxH-fq7gPY&callback=initMap&language=ar"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwxuW2cdXbL38w9dcPOXfGLmi1J7AVVB8&callback=initMap&language=ar"
+    async defer></script> 
+@endpush  
 
-@endpush
+
+
+
+{{-- 
+ @push('js')
+
+ <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyBwxuW2cdXbL38w9dcPOXfGLmi1J7AVVB8'></script>
+ <script type="text/javascript" src='{{ url('cpanel/dist/js/locationpicker.jquery.js') }}'></script>
+ 
+ <script>
+  $('#map').locationpicker({
+      location: {
+          latitude: {{ $contact['lat'] }},
+          longitude:{{ $contact['lan'] }} 
+      },
+      radius: 0, 
+      zoom: 15 
+  });        
+ 
+ </script>
+ @endpush --}}

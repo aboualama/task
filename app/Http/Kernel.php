@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'adminauth' => \App\Http\Middleware\adminMiddleware::class,
         'setting' => \App\Http\Middleware\settingmiddleware::class,
+        'activeuser' => \App\Http\Middleware\activeusermiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

@@ -79,7 +79,11 @@ class productcontroller extends Controller
     public function show($id)
     {  
         $product   = product::where('id', $id)->first();
-        return view('product' , compact('product'));
+        $rel_products = product::where('id', '!='  ,$id)
+                        ->where('subcategory_id' , $product->subcategory->id)
+                        ->take(4)->get(); //or
+        // $rel_products = product::where('id', '!='  ,$id)->limit(4)->get(); 
+        return view('product' , compact('product' , 'rel_products'));
     }
 
     /**

@@ -8,14 +8,11 @@
 
 @php
  
-// $email   = ($contact->email !== null) ? $contact->email : null ; 
-// $phone   = ($contact->phone !== null) ? $contact->phone : null ; 
-// $fax     = ($contact->fax !== null) ? $contact->fax : null ; 
-// $country = ($contact->country !== null) ? $contact->country : null ; 
-// $city    = ($contact->city !== null) ? $contact->city : null ; 
-// $address = ($contact->address !== null) ? $contact->address : null ; 
-// $lat     = ($contact->lat !== null) ? $contact->lat : null ; 
-// $lan     = ($contact->lan !== null) ? $contact->lan : null ; 
+$email   = !empty($contact->email)? $contact->email : 'Egypt@Egypt.com' ; 
+$phone   = !empty($contact->phone)? $contact->phone : '03333' ; 
+$fax     = !empty($contact->fax)? $contact->fax : '033333333' ; 
+$country = !empty($contact->country)? $contact->country : 'Egypt' ; 
+$city    = !empty($contact->city)? $contact->city : 'Alex' ;  
 
  
  
@@ -73,19 +70,19 @@ $address = !empty($contact->address)?$contact->address:'Egypt';
                 
                 <div class="form-group">
                     {!! Form::label('Email') !!}
-                    {!! Form::email('email', $contact->email , ['class' => 'form-control']) !!} 
+                    {!! Form::email('email', $email , ['class' => 'form-control']) !!} 
                 </div>
 
                 <div class="form-group">
                     <div class="row">
                         <div class="col-lg-6">
                             {!! Form::label('Phone') !!}
-                            {!! Form::text('phone', $contact->phone , ['class' => 'form-control']) !!}
+                            {!! Form::text('phone', $phone , ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="col-lg-6">
                             {!! Form::label('Fax') !!}
-                            {!! Form::text('fax', $contact->fax , ['class' => 'form-control']) !!}
+                            {!! Form::text('fax', $fax , ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
@@ -94,12 +91,12 @@ $address = !empty($contact->address)?$contact->address:'Egypt';
                     <div class="row">
                         <div class="col-lg-6">
                             {!! Form::label('Country') !!}
-                            {!! Form::text('country', $contact->country , ['class' => 'form-control']) !!}
+                            {!! Form::text('country', $country , ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="col-lg-6">
                             {!! Form::label('City') !!}
-                            {!! Form::text('city', $contact->city , ['class' => 'form-control']) !!}
+                            {!! Form::text('city', $city , ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
