@@ -23,7 +23,12 @@ class categorycontroller extends Controller
     	$products 	= Product::where('subcategory_id' , $subcategory->id)
     					->orderBy('created_at','DESC')
     					->paginate(10);
-    	return view ('subcategory' , compact('subcategory' , 'products'));
+        $new_products = product::limit(8)->get(); 
+
+        // dd($new_products);
+        // $new_products = product::orderBy('created_at','DESC')->limit(4)->get(); 
+
+    	return view ('subcategory' , compact('subcategory' , 'products' , 'new_products'));
 
     }
 

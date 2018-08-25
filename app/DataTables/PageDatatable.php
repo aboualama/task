@@ -33,7 +33,7 @@ class PageDatatable extends DataTable
      */
     public function query(page $model)
     {
-        return $model->newQuery()->select('id','title', 'keywords', 'description', 'body',  'created_at', 'updated_at');
+        return $model->newQuery()->select('id','title', 'keywords', 'description',  'created_at', 'updated_at');
     }
 
     /**
@@ -78,8 +78,7 @@ class PageDatatable extends DataTable
             'id',
             'title', 
             'keywords', 
-            'description', 
-            'body',
+            'description',  
             'created_at',
             'updated_at',
             [

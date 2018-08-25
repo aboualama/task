@@ -39,6 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   });
 </script>
 <!-- //end-smooth-scrolling -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 @stack('css')

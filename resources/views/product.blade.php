@@ -91,7 +91,7 @@
                             ratione voluptatem sequi nesciunt.</p>
                     </div>
                     <div class="color-quality">
-                        <div class="color-quality-left">
+        {{--                 <div class="color-quality-left">
                             <h5>Color : </h5>
                             <ul>
                                 <li><a href="#"><span></span>Red</a></li>
@@ -99,8 +99,8 @@
                                 <li><a href="#" class="purple"><span></span>Purple</a></li>
                                 <li><a href="#" class="gray"><span></span>Violet</a></li>
                             </ul>
-                        </div>
-                        <div class="color-quality-right">
+                        </div> --}}
+                        <div class="color-quality-right" style="margin-left: 0 ">
                             <h5>Quality :</h5>
                              <div class="quantity"> 
                                 <div class="quantity-select">                           
@@ -126,7 +126,7 @@
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="occasional">
+{{--                     <div class="occasional">
                         <h5>Occasion :</h5>
                         <div class="colr ert">
                             <div class="check">
@@ -144,16 +144,19 @@
                             </div>
                         </div>
                         <div class="clearfix"> </div>
-                    </div>
+                    </div> --}}
                     <div class="simpleCart_shelfItem">
                             <p><span>$320</span> <i class="item_price">$250</i></p>
-                            <p><a class="item_add" href="#">Add to cart</a></p>
+                            <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>
                         </div>
 
             </div>
             <div class="clearfix"> </div>
         </div>
     </div>
+
+
+{{-- Product Information &  Reviews --}}
 
     <div class="additional_info">
         <div class="container">
@@ -163,6 +166,7 @@
                         <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Product Information</span></li>
                         <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Reviews</span></li>
                     </ul>       
+ 
                     <div class="tab-1 resp-tab-content additional_info_grid" aria-labelledby="tab_item-0">
                         <h3>Swan Miami Red Skirt</h3>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
@@ -175,7 +179,7 @@
                             velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
                             quo voluptas nulla pariatur.</p>
                     </div>  
-
+ 
                     <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
                         <h4>({{$product->comments->count()}}) Reviews</h4>
  
@@ -204,6 +208,12 @@
                         {{ $product->comments()->paginate(5)->links() }} 
                     </div>
                     <div class="clearfix"></div>
+
+                                
+                    @if($registration_setting == 'active')
+                        @guest
+                            You Must <a href="#" data-toggle="modal" data-target="#myModal88"> Sign in </a> to leave Review  
+                        @else 
                         <div class="review_grids">
                             <h5>Add A Review</h5>
                             <form action="{{url('admin')}}/a/comment" method="post">
@@ -215,7 +225,12 @@
                                 <input type="submit" value="Submit" >
                             </form>
                         </div>
-                    </div>                                                            
+                    
+                    @endguest 
+                    @endif  
+
+                    </div>   
+
                 </div>  
             </div>
             <script src="{{ asset('web') }}/js/easyResponsiveTabs.js" type="text/javascript"></script>
@@ -230,36 +245,42 @@
             </script>
         </div>
     </div>
+
+{{-- Product Information &  Reviews --}}
+
+
+
+
+
+{{-- Related Products --}}
+
     <div class="w3l_related_products">
         <div class="container">
             <h3>Related Products</h3>
-            <ul id="flexiselDemo2">         
+            <ul id="flexiselDemo2">          
 
-
-                @foreach($rel_products as $product)
-
-
+                @foreach($rel_products as $rel_pro) 
                 <li>
                     <div class="w3l_related_products_grid">
                         <div class="agile_ecommerce_tab_left dresses_grid">
-                            <div class="hs-wrapper hs-wrapper3"> 
-                                <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive"> 
+                            <div class="hs-wrapper3" style="position: relative;  margin: 0 auto; overflow: hidden;"> 
+                                <img src="{{ asset('web/images') }}/{{$rel_pro->photo}}" alt=" " class="img-responsive"> 
                                 <div class="w3_hs_bottom">
                                     <div class="flex_ecommerce">
-                                        <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                        <a href="{{$rel_pro->name}}" data-toggle="modal" data-target="#myModal{{$rel_pro->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                                     </div>
                                 </div>
                             </div>
-                            <h5><a href="{{url('product')}}/{{$product->id}}">{{$product->name}} {{$product->subcategory->id}} </a></h5>
+                            <h5><a href="{{url('product')}}/{{$rel_pro->id}}">{{$rel_pro->name}} {{$rel_pro->subcategory->id}} </a></h5>
                             <div class="simpleCart_shelfItem">
-                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$product->price}}</i></p>
-                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$rel_pro->price}}</i></p>
+                                <p><a class="item_add" href="{{url('cart/add')}}/{{$rel_pro->id}}">Add to cart</a></p>
                             </div>
                         </div>
                     </div>
                 </li> 
                 @endforeach
- 
+
             </ul>
                 <script type="text/javascript">
                     $(window).load(function() {
@@ -290,8 +311,10 @@
                 </script>
                 <script type="text/javascript" src="{{ asset('web') }}/js/jquery.flexisel.js"></script>
         </div>
-    </div>
-    <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+    </div> 
+
+    @foreach($rel_products as $rel_pro)
+    <div class="modal video-modal fade" id="myModal{{$rel_pro->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal6">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -300,7 +323,7 @@
                 <section>
                     <div class="modal-body">
                         <div class="col-md-5 modal_body_left">
-                            <img src="{{ asset('web') }}/images/39.jpg" alt=" " class="img-responsive" />
+                            <img src="{{ asset('web/images') }}/{{$rel_pro->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
                             <h4>a good look women's Long Skirt</h4>
@@ -331,7 +354,7 @@
                             </div>
                             <div class="modal_body_right_cart simpleCart_shelfItem">
                                 <p><span>$320</span> <i class="item_price">$250</i></p>
-                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                <p><a class="item_add" href="{{url('cart/add')}}/{{$rel_pro->id}}">Add to cart</a></p>
                             </div>
                             <h5>Color</h5>
                             <div class="color-quality">
@@ -349,6 +372,22 @@
             </div>
         </div>
     </div>
+    @endforeach 
+
+ {{-- Related Products --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- //single -->
  
 @endsection

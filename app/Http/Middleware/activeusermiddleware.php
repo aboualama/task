@@ -23,8 +23,8 @@ class activeusermiddleware
 
             return $next($request);
 
-    }
-        }else {
+        }
+    }else {
             return redirect('/');
         }
     }

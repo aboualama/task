@@ -1,6 +1,8 @@
 <!-- newsletter -->
-    <div class="newsletter">
-        <div class="container">
+    <div class="newsletter" style="background: #ff9b05; padding: 1em 0;" >
+ 
+        <hr style="width: 70%;  ">
+{{--         <div class="container">
             <div class="col-md-6 w3agile_newsletter_left">
                 <h3>Newsletter</h3>
                 <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
@@ -12,7 +14,7 @@
                 </form>
             </div>
             <div class="clearfix"> </div>
-        </div>
+        </div> --}}
     </div>
 <!-- //newsletter -->
 
@@ -30,30 +32,39 @@
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
-                    <h3>Information</h3>
+                    <h3>Information</h3> 
                     <ul class="info"> 
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="mail.html">Contact Us</a></li>
-                        <li><a href="short-codes.html">Short Codes</a></li>
-                        <li><a href="faq.html">FAQ's</a></li>
-                        <li><a href="products.html">Special Products</a></li>
+                    @if($page_setting == 'active')
+                    @foreach($thepages as $pages)
+                        <li>
+                            <a href="/page/{{ str_replace(' ','-', strtolower($pages->title)) }}" class="{{ Request::is('page/*') ? 'act' : ''}}">{{ $pages->title }} 
+                            </a>
+                        </li> 
+                    @endforeach 
+                    @endif
+                        
+                    @if($contact_setting == 'active')
+                        <li><a href="{{url('/contact')}}" class="{{ Request::is('contact') ? 'act' : ''}}">Mail Us</a></li>
+                    @endif 
                     </ul>
                 </div>
-                <div class="col-md-3 w3_footer_grid">
+                <div class="col-md-3 w3_footer_grid"> 
                     <h3>Category</h3>
                     <ul class="info"> 
-                        <li><a href="dresses.html">Dresses</a></li>
-                        <li><a href="sweaters.html">Sweaters</a></li>
-                        <li><a href="shirts.html">Shirts</a></li>
-                        <li><a href="sarees.html">Sarees</a></li>
-                        <li><a href="skirts.html">Shorts & Skirts</a></li>
+                    @if($subcategory_setting == 'active')
+                    @foreach($all_subcategories->take(5) as $subcategory)
+                        <li> 
+                            <a href="/category/{{str_replace(' ','-', strtolower($subcategory->name))}}">   {{$subcategory->name}} 
+                            </a> 
+                        </li> 
+                    @endforeach 
+                    @endif
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Profile</h3>
-                    <ul class="info"> 
-                        <li><a href="products.html">Summer Store</a></li>
-                        <li><a href="checkout.html">My Cart</a></li>
+                    <ul class="info">  
+                        <li><a href="{{url('/cart')}}">My Cart</a></li>
                     </ul>
                     <h4>Follow Us</h4>
                     <div class="agileits_social_button">
