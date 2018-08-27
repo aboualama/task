@@ -212,7 +212,7 @@
                                 
                     @if($registration_setting == 'active')
                         @guest
-                            You Must <a href="#" data-toggle="modal" data-target="#myModal88"> Sign in </a> to leave Review  
+                            You Must <a href="#" data-toggle="modal" data-target="#myModallogin"> Sign in </a> to leave Review  
                         @else 
                         <div class="review_grids">
                             <h5>Add A Review</h5>

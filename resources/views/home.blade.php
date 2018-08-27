@@ -48,25 +48,25 @@ Home
                     </script>
             </div>
 
-
+ 
         <div class="col-md-7 wthree_banner_bottom_right">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                 <ul id="myTab" class="nav nav-tabs" role="tablist">
                     
-                    <li role="presentation" class="active"><a href="#{{ $a_category->name  }}" id="{{ $a_category->name  }}-tab" role="tab" data-toggle="tab" aria-controls="home">{{ $a_category->name  }}</a></li>
+                    <li role="presentation" class="active"><a href="#{{ $a_category->id }}" id="{{ $a_category->id }}-tab" role="tab" data-toggle="tab" aria-controls="home-tab">{{ first_word($a_category->name)   }}</a></li>
                     
-                    <li role="presentation"><a href="#{{ $b_category->name  }}" role="tab" id="skirts-tab" data-toggle="tab" aria-controls="{{ $b_category->name  }}">{{ $b_category->name  }}</a></li>
+                    <li role="presentation"><a href="#{{ $b_category->id }}" role="tab" id="{{ $b_category->id }}-tab" data-toggle="tab" aria-controls="{{ $b_category->name }}">{{ first_word($b_category->name) }}</a></li>
                     
-                    <li role="presentation"><a href="#{{ $c_category->name  }}" role="tab" id="{{ $c_category->name  }}-tab" data-toggle="tab" aria-controls="{{ $c_category->name  }}">{{ $c_category->name  }}</a></li>
+                    <li role="presentation"><a href="#{{ $c_category->id }}" role="tab" id="{{ $c_category->id  }}-tab" data-toggle="tab" aria-controls="{{ $c_category->name }}">{{ first_word($c_category->name)  }}</a></li>
                     
-                    <li role="presentation"><a href="#{{ $d_category->name  }}" role="tab" id="{{$d_category->name}}-tab" data-toggle="tab" aria-controls="{{ $d_category->name  }}">{{ $d_category->name  }}</a></li>
+                    <li role="presentation"><a href="#{{ $d_category->id  }}" role="tab" id="{{$d_category->id}}-tab" data-toggle="tab" aria-controls="{{ $d_category->name  }}">{{ first_word($d_category->name)  }}</a></li>
                     
-                    <li role="presentation"><a href="#{{ $e_category->name  }}" role="tab" id="{{ $e_category->name  }}-tab" data-toggle="tab" aria-controls="{{ $e_category->name  }}">{{ $e_category->name  }}</a></li>
+                    <li role="presentation"><a href="#{{ $e_category->id  }}" role="tab" id="{{ $e_category->id  }}-tab" data-toggle="tab" aria-controls="{{ $e_category->name  }}">{{ first_word($e_category->name)  }}</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
 
 
-                    <div role="tabpanel" class="tab-pane fade active in" id="{{$a_category->name}}" aria-labelledby="home-tab">
+                    <div role="tabpanel" class="tab-pane fade active in" id="{{ $a_category->id }}" aria-labelledby="home-tab">
                         <div class="agile_ecommerce_tabs">
 
                             @foreach($a_category->products->take(3) as $a_tap_pro)
@@ -95,7 +95,7 @@ Home
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane fade" id="{{$b_category->name}}" aria-labelledby="skirts-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="{{ $b_category->id }}" aria-labelledby="{{ $b_category->name }}">
                         <div class="agile_ecommerce_tabs">
 
                             @foreach($b_category->products->take(3) as $b_tap_pro)
@@ -124,7 +124,7 @@ Home
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane fade" id="{{$c_category->name}}" aria-labelledby="watches-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="{{$c_category->id}}" aria-labelledby="{{ $c_category->name }}">
                         <div class="agile_ecommerce_tabs">
 
                             @foreach($c_category->products->take(3) as $c_tap_pro)
@@ -153,7 +153,7 @@ Home
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane fade" id="{{$d_category->name}}" aria-labelledby="sandals-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="{{$d_category->id}}" aria-labelledby="{{ $d_category->name }}">
                         <div class="agile_ecommerce_tabs">
 
                             @foreach($d_category->products->take(3) as $d_tap_pro)
@@ -182,7 +182,7 @@ Home
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane fade" id="{{$e_category->name}}" aria-labelledby="jewellery-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="{{$e_category->id}}" aria-labelledby="{{ $e_category->name }}">
                         <div class="agile_ecommerce_tabs">
 
                             @foreach($e_category->products->take(3) as $e_tap_pro)
@@ -527,7 +527,7 @@ Home
             <div class="clearfix"> </div>
         </div>
     </div>
-<!-- //banner-bottom -->
+<!-- //Tab-bottom -->
 
 <!-- banner-bottom1 -->
     <div class="banner-bottom1">

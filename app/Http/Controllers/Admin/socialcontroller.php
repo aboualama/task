@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\social; 
+use Storage; 
 use App\DataTables\SocialDatatable; 
 
 class socialController extends Controller
@@ -33,16 +34,23 @@ class socialController extends Controller
         $data = $this->validate(request(), [
                 
                 'name'        => 'required',  
-                // 'link'        => 'required',   
-                'icon'        => 'required',        
-            ]); 
-        
-        $data['name'] = $request->name;     
-        $data['link'] = $request->link;      
-        $data['icon'] = $request->icon;       
- 
+                'link'        => 'required',   
+                'img'         => 'required|image',        
+            ]);   
+
+            if (request()->hasFile('img')) 
+            {  
+                 $public_path = 'uploads/social';
+                 $img_name = time() . '.' . request('img')->getClientOriginalExtension();
+                 request('img')->move($public_path , $img_name); 
+            }else
+            { 
+                $img_name = 'default.jpg';  
+            } 
+
+        $data['img'] =  $img_name;  
          
-        social::create($data);
+        social::create($data); 
         return redirect ('/admin/social');
     }
  
@@ -62,28 +70,40 @@ class socialController extends Controller
  
     public function update(Request $request , $id)
     {
+        $file = social::find($id);
         $data = $this->validate(request(), [
                     
                 'name'        => 'required',   
-                // 'link'        => 'required',   
-                'icon'        => 'required',      
+                'link'        => 'required',        
             ]); 
+         
+
+        if (request()->hasFile('img')) 
+        { 
+         if($file->img !==  'default.jpg'){
+            Storage::delete('social/'.$file->img);    
+         }
+         $public_path = 'uploads/social';
+         $img_name = time() . '.' . request('img')->getClientOriginalExtension();
+         request('img')->move($public_path , $img_name); 
         
-        $data['name']   = $request->name;       
-        $data['link']   = $request->link;      
-        $data['icon']   = $request->icon;        
-  
+         $data['img']       =  $img_name; 
+        } 
+         
      
         $social     = social::find($id);
         $social->update($data);
         return redirect ('/admin/social');
     }
  
-    // public function destroy($id)
-    // {
-    //     $social     = social::find($id);
-    //     $social->delete();
+    public function destroy($id)
+    {
+        $social = social::find($id); 
+        // if($social->img !==  'default.jpg'){
+        //     Storage::delete('social/'.$social->img);       
+        // } 
+        $social->delete();
 
-    //     return back()->with('succses' , 'The social Deleted Successfully');
-    // }
+        return back()->with('succses' , 'The social Deleted Successfully');
+    }
 }

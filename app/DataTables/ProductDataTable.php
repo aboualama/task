@@ -35,7 +35,7 @@ class ProductDataTable extends DataTable
      * @param \App\product $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(z $model)
+    public function query(product $model)
     {
         return $model->newQuery()->select('id','name', 'description', 'price', 'subcategory_id', 'brand_id', 'admin_id', 'photo',  'created_at', 'updated_at');
     }

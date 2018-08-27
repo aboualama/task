@@ -23,14 +23,16 @@ class contactController extends Controller
     public function contact(Request $request) {
         
         $this->validate($request, [
-            'name'    => 'required',
-            'email'   => 'required|email',
-            'subject' => 'min:3',
-            'message' => 'min:10']);
+            'name'      => 'required',
+            'email'     => 'required|email',
+            'telephone' => 'numeric',
+            'subject'   => 'min:3',
+            'message'   => 'min:10']);
 
         $data = array(
             'name'        => $request->name,
             'email'       => $request->email,
+            'telephone'   => $request->telephone,
             'subject'     => $request->subject,
             'bodyMessage' => $request->message
             );

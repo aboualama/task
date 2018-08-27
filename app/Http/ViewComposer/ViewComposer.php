@@ -7,6 +7,7 @@ use App\page;
 use App\social; 
 use App\category; 
 use App\subcategory; 
+use App\contact; 
 use App\brand; 
 use DB;
 
@@ -18,7 +19,8 @@ class ViewComposer {
       $view->with('all_subcategories', subcategory::all() );   
     	$view->with('all_brands', brand::all() );      
    		$view->with('thepages', page::all() );   
-   		$view->with('sociallinks', social::all() );   
+      $view->with('sociallinks', social::all() );   
+   		$view->with('footer_contact', contact::first() );   
 
    		$view->with('registration_setting', DB::table('settings')->where('name' , 'registration')->value('status') );
    		$view->with('contact_setting', DB::table('settings')->where('name' , 'contact')->value('status') );

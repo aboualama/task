@@ -36,7 +36,7 @@
 
             @include('errors.error')
 
-            {!! Form::open(['url' => 'admin/social', 'class' => 'form-group']) !!}
+            {!! Form::open(['url' => 'admin/social', 'class' => 'form-group' , 'files' => true]) !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class=" control-label">Social Name</label>
@@ -65,19 +65,10 @@
                             </div>
                         </div> 
 
-
-                        <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
-                            <label for="icon" class=" control-label">Social icon</label>
-                            <div class=" ">
-                                <input id="icon" type="text" class="form-control" name="icon" value="{{ old('icon') }}" required autofocus>
-
-                                @if ($errors->has('icon'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('icon') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> 
+                        <div class="form-group">
+                            {!! Form::label('Social Image') !!}
+                            {!! Form::file('img', ['class' => 'form-control']) !!}
+                        </div>
 
 
  

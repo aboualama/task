@@ -123,12 +123,14 @@ class productcontroller extends Controller
         if (request()->hasFile('photo')) 
         { 
 
-         $file = product::find($id);
-         Storage::delete('product/'.$file->photo);   
-        
-         $public_path = 'uploads/product';
-         $photo_name = time() . '.' . request('photo')->getClientOriginalExtension();
-         request('photo')->move($public_path , $photo_name); 
+            $product     = product::find($id);
+                if($product->photo !==  'default.jpg'){
+                    Storage::delete('product/'.$product->photo);       
+                }   
+            
+             $public_path = 'uploads/product';
+             $photo_name = time() . '.' . request('photo')->getClientOriginalExtension();
+             request('photo')->move($public_path , $photo_name); 
 
          $data['photo']       =  $photo_name; 
      
@@ -149,6 +151,9 @@ class productcontroller extends Controller
     public function destroy($id)
     {
         $product     = product::find($id);
+        if($product->photo !==  'default.jpg'){
+            Storage::delete('product/'.$product->photo);       
+        } 
         $product->delete();
 
         return back() ;

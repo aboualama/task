@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -120,7 +120,7 @@ class RegisterController extends Controller
         }
 
         $user->update($data);
-        return redirect ('/home')->with('succses' , 'Your account has been updated!');
+        return redirect ('/')->with('succses' , 'Your account has been updated!');
     }
 
 }

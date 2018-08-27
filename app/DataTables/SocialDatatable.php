@@ -20,9 +20,11 @@ class SocialDatatable extends DataTable
         return datatables($query)
             ->addColumn('edit', 'admin.social.btn.edit')
             ->addColumn('delete', 'admin.social.btn.delete')
+            ->addColumn('image', 'admin.social.btn.img')
             ->rawColumns([
                 'edit',
                 'delete',
+                'image',
             ]);
     }
 
@@ -34,7 +36,7 @@ class SocialDatatable extends DataTable
      */
     public function query(social $model)
     {
-        return $model->newQuery()->select('id','name', 'link', 'icon', 'created_at', 'updated_at');
+        return $model->newQuery()->select('id','name', 'link', 'img', 'created_at', 'updated_at');
     }
 
     /**
@@ -78,8 +80,16 @@ class SocialDatatable extends DataTable
         return [
             'id',
             'name', 
-            'link', 
-            'icon',  
+            'link',   
+            [
+                'name'       => 'image',
+                'data'       => 'image',
+                'title'      => 'Image',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ], 
             'created_at',
             'updated_at',
             [

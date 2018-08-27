@@ -137,43 +137,37 @@ class subcategorycontroller extends Controller
                 'category_id' => 'required',     
             ]); 
 
-        if (request()->hasFile('img')) 
-        { 
-         if($file->img !==  'default.jpg'){
-            Storage::delete('subcategory/'.$file->img);    
-         }
-         $public_path = 'uploads/subcategory';
-         $img_name = time() . '.' . request('img')->getClientOriginalExtension();
-         request('img')->move($public_path , $img_name); 
-        
-         $data['img']       =  $img_name; 
-        }  
+            if (request()->hasFile('img')) 
+            { 
+             if($file->img !==  'default.jpg'){
+                Storage::delete('subcategory/'.$file->img);    
+             }
+             $public_path = 'uploads/subcategory';
+             $img_name = time() . '.' . request('img')->getClientOriginalExtension();
+             request('img')->move($public_path , $img_name); 
+            
+             $data['img']       =  $img_name; 
+            }   
 
+            if (request()->hasFile('r_img')) 
+            {  
+             Storage::delete('subcategory/'.$file->r_img);  
+             $public_path = 'uploads/subcategory';
+             $r_img_name = strtolower(request('name')).'_r_image.' . request('r_img')->getClientOriginalExtension();
+             request('r_img')->move($public_path , $r_img_name); 
 
-
-        if (request()->hasFile('r_img')) 
-        { 
-        
-         Storage::delete('subcategory/'.$file->r_img);  
-         $public_path = 'uploads/subcategory';
-         $r_img_name = strtolower(request('name')).'_r_image.' . request('r_img')->getClientOriginalExtension();
-         request('r_img')->move($public_path , $r_img_name); 
-
-         $data['r_img']   =  $r_img_name; 
-        } 
-
-
-        if (request()->hasFile('l_img')) 
-        { 
-        
-         Storage::delete('subcategory/'.$file->l_img); 
-         $public_path = 'uploads/subcategory';
-         $l_img_name = strtolower(request('name')).'_l_image.' . request('l_img')->getClientOriginalExtension();
-         request('l_img')->move($public_path , $l_img_name); 
-        
-         $data['l_img']   =  $l_img_name; 
-        }
-  
+             $data['r_img']   =  $r_img_name; 
+            }  
+            if (request()->hasFile('l_img')) 
+            {  
+             Storage::delete('subcategory/'.$file->l_img); 
+             $public_path = 'uploads/subcategory';
+             $l_img_name = strtolower(request('name')).'_l_image.' . request('l_img')->getClientOriginalExtension();
+             request('l_img')->move($public_path , $l_img_name); 
+            
+             $data['l_img']   =  $l_img_name; 
+            }
+      
         $data['r_title'] =  request('r_title'); 
         $data['l_title'] =  request('l_title'); 
 

@@ -26,9 +26,9 @@
                     <h3>Contact</h3>
                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                     <ul class="address">
-                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>{{$footer_contact->address}}.</span></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span><a href="mailto:{{$footer_contact->email}}">{{$footer_contact->email}}</a></span></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><span>+{{$footer_contact->phone}}</span></li>
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
@@ -64,17 +64,29 @@
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Profile</h3>
                     <ul class="info">  
+
+                        @if($registration_setting == 'active')
+                        @guest
+                            <li> <a href="#" data-toggle="modal" data-target="#myModallogin"> Sign In </a></li> 
+                        @else  
+                            <li><a href="{{url('/user/edit')}}">My Profile</a></li>
+                        @endguest 
+                        @endif  
+
                         <li><a href="{{url('/cart')}}">My Cart</a></li>
                     </ul>
+
+
+                    @if($social_setting == 'active')
                     <h4>Follow Us</h4>
                     <div class="agileits_social_button">
                         <ul>
-                            <li><a href="#" class="facebook"> </a></li>
-                            <li><a href="#" class="twitter"> </a></li>
-                            <li><a href="#" class="google"> </a></li>
-                            <li><a href="#" class="pinterest"> </a></li>
+                            @foreach($sociallinks as $sociallink)
+                                <li><a href="{{$sociallink->link}}" class="{{$sociallink->name}}"> </a></li>
+                            @endforeach  
                         </ul>
                     </div>
+                    @endif
                 </div>
                 <div class="clearfix"> </div>
             </div>

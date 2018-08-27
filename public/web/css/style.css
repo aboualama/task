@@ -1152,10 +1152,12 @@ ul.wmuSliderPagination {
     border: 1px solid #414141;
     padding: .5em;
     margin-right: 1em;
+    display: block;
+    float: left;
 }
 .w3_footer_grid ul.address li span {
     display: block;
-    margin-left: 3em;
+    padding-top: 5px;
 }
 .w3_footer_grid ul li a {
     color: #999;
