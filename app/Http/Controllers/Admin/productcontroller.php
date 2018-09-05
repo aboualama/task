@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\ProductDataTable;
 use App\product;
+use App\subcategory;
 use Storage;
 use Auth;
+use Image;
 
 class productcontroller extends Controller
 {
@@ -55,9 +57,14 @@ class productcontroller extends Controller
         if (request()->hasFile('photo')) 
         { 
         
-         $public_path = 'uploads/product';
+         $file = request('photo'); 
          $photo_name = time() . '.' . request('photo')->getClientOriginalExtension();
-         request('photo')->move($public_path , $photo_name); 
+
+         $public_path = 'uploads/product/' . $photo_name ;
+         // $public_path = 'uploads/product/';  
+
+         Image::make($file)->resize(300, 500)->insert('uploads/watermark/A.png', 'bottom-right', 10, 10)->save($public_path);
+         // request('photo')->move($public_path , $photo_name); 
         }else
         { 
             $photo_name = 'banner3.jpg';  
@@ -157,5 +164,11 @@ class productcontroller extends Controller
         $product->delete();
 
         return back() ;
-    }
+    }     
+ 
 }
+
+
+
+
+

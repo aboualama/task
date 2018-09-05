@@ -25,7 +25,7 @@ body a:hover{
 	text-decoration:none;
 }
 /*-- header --*/
-input[type="submit"],.panel-body ul li a,.checkout-right-basket a,.additional_info_sub_grid_right a,.panel_bottom li a,.panel-title a,.breadcrumb_dress ul li a,.multi-column-dropdown li a,.footer-copy p a,.w3_footer_grid ul li a,.agileinfo_banner_bottom1_grid_left a,.navbar-default .navbar-nav > li > a,.simpleCart_shelfItem p a,.agile_ecommerce_tab_left h5 a,.w3_hs_bottom ul li a,.team-bottom a{
+input[type="submit"],.panel-body ul li a,.checkout-right-basket a,.additional_info_sub_grid_right a,.panel_bottom li a,.panel-title a,.breadcrumb_dress ul li a,.multi-column-dropdown li a,.footer-copy p a,.w3_footer_grid ul li a,.agileinfo_banner_bottom1_grid_left a,.navbar-default .navbar-nav > li > a,.simpleCart_shelfItem p a,.agile_ecommerce_tab_left h5 a,.w3_hs_bottom ul li a,.team-bottom a,.paypal-button{
 	transition:.5s ease-in-out;
 	-webkit-transition:.5s ease-in-out;
 	-moz-transition:.5s ease-in-out;
@@ -2600,15 +2600,19 @@ td.invert-image a img {
     border-bottom: 1px solid #DDD;
     margin: 2em 0 0;
 }
-.checkout-right-basket a{
+.checkout-right-basket a , .paypal-button{
 	padding:10px 30px;
 	color:#fff;
 	font-size:1em;
 	background:#212121;
 	text-decoration:none;
 }
-.checkout-right-basket a:hover{
+.checkout-right-basket a:hover , .paypal-button:hover{
 	background:#ff9b05;
+}
+.paypal-button{
+    border: 0;
+    width: 100%;
 }
 .checkout-right-basket a span {
     left: -.5em;

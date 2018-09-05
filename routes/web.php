@@ -37,7 +37,7 @@ Route::group(['middleware' => 'setting:page'] , function(){
  
 Route::group(['middleware' => 'setting:e_commerce'] , function(){  
 	Route::group(['middleware' => 'setting:category'] , function(){  
-		Route::get('/category/{name}', 'categorycontroller@show'); 
+		Route::get('/category/{name}/{srot?}', 'categorycontroller@show'); 
 	}); 
 
 	 
@@ -53,11 +53,16 @@ Route::group(['middleware' => 'setting:e_commerce'] , function(){
 		Route::delete('/cart/delete/{rowId}', 'cartcontroller@delete'); 
 		Route::get('/cart/destroy', 'cartcontroller@destroy'); 
 	// }); 
-}); 
+});  
 Route::get('/test',  function(){   /// test page
 
 	return view('test');
 
 });  
 	 
+
+
  
+Route::post('pay','PaymentController@payWithPaypal')->name('pay'); 
+Route::get('status','PaymentController@status')->name('status'); 
+Route::get('canceled','PaymentController@canceled')->name('canceled');

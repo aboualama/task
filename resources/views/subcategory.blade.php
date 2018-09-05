@@ -47,7 +47,7 @@
                               <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingOne">
                                   <h4 class="panel-title asd">
-                                    <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="colla\pseOne">
                                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>New Arrivals
                                     </a>
                                   </h4>
@@ -130,33 +130,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
                 <div class="col-md-8 w3ls_dresses_grid_right">
                     <div class="col-md-6 w3ls_dresses_grid_right_left">
                         <div class="w3ls_dresses_grid_right_grid1">
@@ -182,27 +156,26 @@
                         <div class="w3ls_dresses_grid_right_grid2_left">
                             <h3>Showing Results: 0-1</h3>
                         </div>
-                        <div class="w3ls_dresses_grid_right_grid2_right">
-                            <select name="select_item" class="select_item">
-                                <option selected="selected">Default sorting</option>
-                                <option>Sort by popularity</option>
-                                <option>Sort by average rating</option>
-                                <option>Sort by newness</option>
-                                <option>Sort by price: low to high</option>
-                                <option>Sort by price: high to low</option>
-                            </select>
+                        <div class="w3ls_dresses_grid_right_grid2_right">  
+                            <ul style= "position: relative; margin-right: 15px; float: left;" >
+                                <li class="dropdown" style= " border: 1px solid #eee; padding: 10px;  list-style: none;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre style= " color: #ff9b05; text-decoration: none">
+                                       Default sorting<span class="caret"></span>
+                                    </a> 
+                                    <ul class="dropdown-menu" style= "position: absolute; top: 40px; left: -1px; box-shadow: none; border: 1px solid #eee; border-radius: inherit; ">
+                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/1">Sort by popularity </a></li>
+                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/2">Sort by average rating </a></li>
+                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/3">Sort by newness</a></li>
+                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/4">Sort by price: low to high</a></li>
+                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/5">Sort by price: high to low</a></li> 
+                                    </ul>
+                                </li> 
+                            </ul>  
                         </div>
                         <div class="clearfix"> </div>
                     </div>
  
-                    <div class="w3ls_dresses_grid_right_grid3">
-
-
-
-
-
-
-
+                    <div class="w3ls_dresses_grid_right_grid3"> 
 
 
 
@@ -213,7 +186,7 @@
                         <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
                             <div class="agile_ecommerce_tab_left dresses_grid">
                                 <div class=" hs-wrapper2" style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('uploads/product') }}/{{$product->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom w3_hs_bottom_sub1">
                                         <ul>
                                             <li>

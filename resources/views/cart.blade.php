@@ -171,7 +171,27 @@
                         <li class="cart-li-total" >Total Service Charges <i>-</i> <span>$ {{$charge}}</span></li>
                         <li>Total <i>-</i> <span>${!!Cart::subtotal(0, '','') + $charge !!}</span></li> 
                             {{-- Cart::subtotal(0, '','') or you can edit it from config cart --}}
-                    </ul>
+                    </ul>       
+
+
+                    @if($registration_setting == 'active')
+                        @guest
+                            You Must <a href="#" data-toggle="modal" data-target="#myModallogin"> Sign in </a> to Buy Now  
+                        @else  
+        
+                        <form method="POST" action="{{ route('pay') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="price" value="{!!Cart::subtotal(0, '','') + $charge !!}" />
+                        {{-- @foreach($cart_item as $cartItem)  --}}
+                            <input type="hidden" name="name" value="{{$cart_item}}" />
+                        {{-- @endforeach --}}
+                            
+                            <button class="paypal-button" type="submit">Buy Now</button>
+                        </form> 
+                    
+                    @endguest 
+                    @endif    
+
                 </div>
 
 
@@ -180,6 +200,9 @@
                 <div class="checkout-right-basket">
                     <a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
                 </div>
+
+
+                
                 <div class="clearfix"> </div>
             </div>
         </div>
