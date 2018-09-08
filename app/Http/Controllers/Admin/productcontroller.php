@@ -88,9 +88,33 @@ class productcontroller extends Controller
         $product   = product::where('id', $id)->first();
         $rel_products = product::where('id', '!='  ,$id)
                         ->where('subcategory_id' , $product->subcategory->id)
-                        ->take(4)->get(); //or
-        // $rel_products = product::where('id', '!='  ,$id)->limit(4)->get(); 
+                        ->take(4)->get(); 
         return view('product' , compact('product' , 'rel_products'));
+    }
+
+
+
+    public function allproducts($srot=null)
+    {   
+
+        switch ($srot):
+            case null:
+                $products   = Product::orderBy('created_at','DESC')
+                        ->paginate(12);
+                break;
+            case 1:
+                $products   = Product::orderBy('price','ASC')
+                        ->paginate(12);
+                break;
+            case 2:
+                $products   = Product::orderBy('created_at','AC')
+                        ->paginate(12);
+                break; 
+        endswitch; 
+
+        $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
+
+        return view('products' , compact('products' , 'new_products'));
     }
 
     /**

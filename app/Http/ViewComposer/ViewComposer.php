@@ -7,6 +7,7 @@ use App\page;
 use App\social; 
 use App\category; 
 use App\subcategory; 
+use App\product; 
 use App\contact; 
 use App\brand; 
 use DB;
@@ -17,6 +18,7 @@ class ViewComposer {
  
     	$view->with('all_categories', category::all() );    
       $view->with('all_subcategories', subcategory::all() );   
+      $view->with('all_products', product::all() );   
     	$view->with('all_brands', brand::all() );      
    		$view->with('thepages', page::all() );   
       $view->with('sociallinks', social::all() );   
@@ -30,11 +32,12 @@ class ViewComposer {
    		$view->with('subcategory_setting', DB::table('settings')->where('name' , 'subcategory')->value('status') );
    		$view->with('brand_setting', DB::table('settings')->where('name' , 'brand')->value('status') );
       $view->with('product_setting', DB::table('settings')->where('name' , 'product')->value('status') );
-   		$view->with('comment_setting', DB::table('settings')->where('name' , 'comment')->value('status') );
+      $view->with('comment_setting', DB::table('settings')->where('name' , 'comment')->value('status') );
+   		$view->with('order_setting', DB::table('settings')->where('name' , 'order')->value('status') );
     
  
     }
 }
 
-		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand' , 'comment'
+		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand' , 'comment' , order
 

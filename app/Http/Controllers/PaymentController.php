@@ -15,7 +15,10 @@ use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Api\PaymentExecution;
-
+use App\Order;
+use App\Product;
+use App\OrderProduct;
+use Cart;
 
 //Paymen Processing
 
@@ -39,8 +42,33 @@ class PaymentController extends Controller
     }
 
     public function payWithPaypal (Request $request) {
-        $price = $request->input('price');
-        $name = $request->input('name');
+
+        // Insert into orders table
+        $order = Order::create([
+            'user_id'       => auth()->user()->id,
+            'email'         => $request->email,
+            'name'          => $request->name,
+            'address'       => $request->address,
+            'city'          => $request->city,
+            'country'       => $request->country,
+            'postalcode'    => $request->postalcode,
+            'phone'         => $request->phone, 
+            'total'         => $request->total,
+            'error'         => $request->error,
+        ]);
+        // Insert into order_product table
+        foreach (Cart::content() as $item) {
+            OrderProduct::create([
+                'order_id'   => $order->id,
+                'product_id' => $item->id,
+                'quantity'   => $item->qty,
+            ]);
+        }
+
+
+
+        $price = $request->input('total');
+        $name = $request->input('item_name');
 
         //Set Payer
         $payer = new Payer();

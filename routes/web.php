@@ -10,59 +10,66 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/home', 'HomeController@task') ; 
-Route::get('/', 'HomeController@index')->name('home');
-
+ 
+Route::get('/', 'HomeController@index')->name('home'); 
 
 
-Route::group(['middleware' => 'setting:registration'] , function(){
-	
+/////// REGISTRATION MIDDLEWARE ////////// 
+Route::group(['middleware' => 'setting:registration'] , function(){ 
 	Auth::routes(); 
 	Route::group(['middleware' => 'activeuser:active'] , function(){
 		Route::get('/user/edit', 'auth\registercontroller@edit');
-		Route::put('/user/edit', 'auth\registercontroller@update');
+		Route::put('/user/edit', 'auth\registercontroller@update'); 
 	});
 });
+
  
+/////// SETTING MIDDLEWARE ////////// 
 Route::group(['middleware' => 'setting:contact'] , function(){ 
 	Route::get('/contact', 'Admin\contactController@show');
 	Route::post('/contact', 'Admin\contactController@contact'); 
 });
- 
+
+
+/////// PAGE MIDDLEWARE ////////// 
 Route::group(['middleware' => 'setting:page'] , function(){ 
 	Route::get('/page/{name}', 'Admin\pagecontroller@show'); 
 }); 
+  
 
- 
+/////// E_COMMERCE MIDDLEWARE ////////// 
 Route::group(['middleware' => 'setting:e_commerce'] , function(){  
+	
 	Route::group(['middleware' => 'setting:category'] , function(){  
 		Route::get('/category/{name}/{srot?}', 'categorycontroller@show'); 
 	}); 
-
-	 
+ 
 	Route::group(['middleware' => 'setting:product'] , function(){  
 		Route::get('/product/{id}', 'Admin\productcontroller@show'); 
-	}); 
-
-	 
-	// Route::group(['middleware' => 'setting:cart'] , function(){  
+		Route::get('/all-products/{srot?}', 'Admin\productcontroller@allproducts');  
+ 
 		Route::get('/cart', 'cartcontroller@show');
 		Route::get('/cart/add/{id}', 'cartcontroller@add'); 
 		Route::put('/cart/update', 'cartcontroller@update'); 
 		Route::delete('/cart/delete/{rowId}', 'cartcontroller@delete'); 
 		Route::get('/cart/destroy', 'cartcontroller@destroy'); 
-	// }); 
-});  
+
+		Route::group(['middleware' => 'setting:registration'] , function(){	
+			Route::get('/checkout', 'cartcontroller@checkout');
+		}); 
+
+	});
+
+ 
+	Route::post('pay','PaymentController@payWithPaypal')->name('pay'); 
+	Route::get('status','PaymentController@status')->name('status'); 
+	Route::get('canceled','PaymentController@canceled')->name('canceled');
+
+}); 
+
 Route::get('/test',  function(){   /// test page
 
 	return view('test');
 
 });  
-	 
-
-
  
-Route::post('pay','PaymentController@payWithPaypal')->name('pay'); 
-Route::get('status','PaymentController@status')->name('status'); 
-Route::get('canceled','PaymentController@canceled')->name('canceled');

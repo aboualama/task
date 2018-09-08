@@ -105,7 +105,7 @@
         @if($product_setting == 'active')
           <li class="treeview ">
             <a href="#">
-              <i class="fa fa-phone"></i> <span>Product</span>
+              <i class="fa fa-gift"></i> <span>Product</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -120,7 +120,7 @@
         @if($category_setting == 'active')
           <li class="treeview ">
             <a href="#">
-              <i class="fa fa-phone"></i> <span>Category</span>
+              <i class="fa fa-tag"></i> <span>Category</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -135,7 +135,7 @@
         @if($subcategory_setting == 'active')
           <li class="treeview ">
             <a href="#">
-              <i class="fa fa-phone"></i> <span>subcategory</span>
+              <i class="fa fa-tags"></i> <span>subcategory</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -150,7 +150,7 @@
         @if($brand_setting == 'active')
           <li class="treeview ">
             <a href="#">
-              <i class="fa fa-phone"></i> <span>brand</span>
+              <i class="fa fa-apple "></i> <span>brand</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -165,13 +165,28 @@
         @if($comment_setting == 'active')
           <li class="treeview ">
             <a href="#">
-              <i class="fa fa-phone"></i> <span>comment</span>
+              <i class="fa fa-comments "></i> <span>comment</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a> 
             <ul class="treeview-menu"> 
               <li><a href="/admin/comment"><i class="fa fa-circle-o"></i>comment</a></li>   
+            </ul>
+          </li> 
+        @endif
+
+         
+        @if($order_setting == 'active')
+          <li class="treeview ">
+            <a href="#">
+              <i class="fa fa-barcode "></i> <span>order</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a> 
+            <ul class="treeview-menu"> 
+              <li><a href="/admin/order"><i class="fa fa-circle-o"></i>order</a></li>   
             </ul>
           </li> 
         @endif

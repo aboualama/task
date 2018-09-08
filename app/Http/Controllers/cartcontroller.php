@@ -17,6 +17,13 @@ class cartcontroller extends Controller
     	return view('cart' , compact('cart_item' , 'new_products' , 'charge'));
     }
 
+    public function checkout()
+    {
+        $charge = 45 ;
+        $cart_item =  Cart::content();
+        $new_products = product::orderBy('created_at' , 'desc')->take(10)->get();  
+        return view('checkout' , compact('cart_item' , 'new_products' , 'charge'));
+    }
 
     public function add($id)
     {

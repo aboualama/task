@@ -5,6 +5,34 @@
 @endsection
 
 @section('content')
+
+ 
+ 
+<!-- banner -->
+    <div class="banner10" id="home1">
+        <div class="container">
+            <h2>Edit:- {{$user->first_name}}</h2>
+        </div>
+    </div>
+<!-- //banner -->
+
+<!-- breadcrumbs -->
+    <div class="breadcrumb_dress">
+        <div class="container">
+            <ul>
+                <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+                <li>Edit</li>
+            </ul>
+        </div>
+    </div>
+<!-- //breadcrumbs -->
+
+
+
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -150,28 +178,11 @@
                     </span>
                 @endif
             </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div> 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Edit
                                 </button>
                             </div>
                         </div>

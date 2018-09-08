@@ -9,7 +9,7 @@
 @endsection
 
 @section('title')
- Checkout
+  Shopping Cart
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
 <!-- banner -->
     <div class="banner10" id="home1">
         <div class="container">
-            <h2>Checkout</h2>
+            <h2> Shopping Cart</h2>
         </div>
     </div>
 <!-- //banner -->
@@ -29,7 +29,7 @@
         <div class="container">
             <ul>
                 <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-                <li>Checkout</li>
+                <li> Shopping Cart</li>
             </ul>
         </div>
     </div>
@@ -179,26 +179,26 @@
                             You Must <a href="#" data-toggle="modal" data-target="#myModallogin"> Sign in </a> to Buy Now  
                         @else  
         
-                        <form method="POST" action="{{ route('pay') }}">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="price" value="{!!Cart::subtotal(0, '','') + $charge !!}" />
-                        {{-- @foreach($cart_item as $cartItem)  --}}
-                            <input type="hidden" name="name" value="{{$cart_item}}" />
-                        {{-- @endforeach --}}
-                            
-                            <button class="paypal-button" type="submit">Buy Now</button>
-                        </form> 
+                        {{-- <form action="{{url('/checkout')}}"> 
+                            <button class="paypal-button" type="submit">Checkout</button>
+                        </form>  --}}
                     
+                        <div class="checkout-div"> 
+                            <a href="{{url('/checkout')}}">
+                                Checkout 
+                            </a>
+                        </div>
                     @endguest 
                     @endif    
 
-                </div>
-
+                </div> 
 
 @endif
 
                 <div class="checkout-right-basket">
-                    <a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+                    <a href="{{url('/all-products')}}">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping
+                    </a>
                 </div>
 
 

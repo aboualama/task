@@ -4336,3 +4336,24 @@ td.invert-image a img {
 		right: 111px;
 	}
 }
+
+.checkout-right input , textarea{
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.checkout-div{
+    background: #de0f0f;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;-webkit-transition: .5s ease-in-out;
+}
+
+.checkout-div:hover{
+    background: #ff9b05; 
+}
+
+.checkout-div a{
+    color: #fff; 
+    padding: 37%;
+}
