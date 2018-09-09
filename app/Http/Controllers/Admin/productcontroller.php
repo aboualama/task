@@ -100,21 +100,21 @@ class productcontroller extends Controller
         switch ($srot):
             case null:
                 $products   = Product::orderBy('created_at','DESC')
-                        ->paginate(12);
+                        ->paginate(9); 
                 break;
             case 1:
                 $products   = Product::orderBy('price','ASC')
-                        ->paginate(12);
+                        ->paginate(9); 
                 break;
             case 2:
                 $products   = Product::orderBy('created_at','AC')
-                        ->paginate(12);
+                        ->paginate(9);
                 break; 
         endswitch; 
 
+        $results      = product::paginate(9);
         $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
-
-        return view('products' , compact('products' , 'new_products'));
+        return view('products' , compact('products' , 'new_products' , 'results'));
     }
 
     /**

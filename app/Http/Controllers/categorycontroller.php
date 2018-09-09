@@ -25,30 +25,24 @@ class categorycontroller extends Controller
             case null:
                 $products   = Product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('created_at','DESC')
-                        ->paginate(10);
+                        ->paginate(9);
                 break;
             case 1:
                 $products   = Product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('price','ASC')
-                        ->paginate(10);
+                        ->paginate(9);
                 break;
             case 2:
                 $products   = Product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('created_at','AC')
-                        ->paginate(10);
+                        ->paginate(9);
                 break;
              
-        endswitch;
+        endswitch; 
  
-
-
-
-        $new_products = product::limit(8)->get(); 
-
-        // dd($new_products);
-        // $new_products = product::orderBy('created_at','DESC')->limit(4)->get(); 
-
-    	return view ('subcategory' , compact('subcategory' , 'products' , 'new_products'));
+        $results      = Product::where('subcategory_id' , $subcategory->id)->paginate(9);
+        $new_products = product::limit(8)->get();   
+    	return view ('subcategory' , compact('subcategory' , 'products' , 'new_products' , 'results'));
 
     }
 

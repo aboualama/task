@@ -27,7 +27,7 @@
 											<h6>{{$category->name}}</h6> 
 											@foreach($category->subcategories as $subcategory)				
 												<li>
-													<a href="/category/{{str_replace(' ','-', strtolower($subcategory->name))}}">	{{$subcategory->name}}
+													<a href="/category/{{slug($subcategory->name)}}">	{{$subcategory->name}}
 														
 															{{-- @if( ) --}}
 																<span>New</span>

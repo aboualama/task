@@ -15,6 +15,13 @@ if(!function_exists('first_word')){
 		return $x[0];
 	}
 }
+
+
+if(!function_exists('slug')){
+	function slug($string){ 
+		return str_replace(' ','-', strtolower($string));
+	}
+}
 /**
  * Return nav-here if current path begins with this path.
  *

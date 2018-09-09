@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('keywords')
- {{-- {{ $page->keywords }}  --}}
+ {{$subcategory->name}}
 @endsection
 
 @section('description')
- {{-- {{ $page->description }} --}}
+ {{$subcategory->name}}
 @endsection
 
 @section('title')
@@ -154,7 +154,7 @@
 
                     <div class="w3ls_dresses_grid_right_grid2">
                         <div class="w3ls_dresses_grid_right_grid2_left">
-                            <h3>Showing Results: 0-1</h3>
+                        <h3>Showing Results: {{$results->lastItem()}}-{{$products->count()}}</h3> 
                         </div>
                         <div class="w3ls_dresses_grid_right_grid2_right">  
                             <ul style= "position: relative; margin-right: 15px; float: left;" >
@@ -163,11 +163,12 @@
                                        Default sorting<span class="caret"></span>
                                     </a> 
                                     <ul class="dropdown-menu" style= "position: absolute; top: 40px; left: -1px; box-shadow: none; border: 1px solid #eee; border-radius: inherit; ">
-                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/1">Sort by popularity </a></li>
-                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/2">Sort by average rating </a></li>
-                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/3">Sort by newness</a></li>
-                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/4">Sort by price: low to high</a></li>
-                                    <li><a href="{{url('/category')}}/{{str_replace(' ','-', strtolower($subcategory->name))}}/5">Sort by price: high to low</a></li> 
+
+                                <li><a href="{{url('/category')}}/{{slug($subcategory->name)}}/1">Sort by popularity </a></li>
+                                <li><a href="{{url('/category')}}/{{slug($subcategory->name)}}/2">Sort by average rating </a></li>
+                                <li><a href="{{url('/category')}}/{{slug($subcategory->name)}}/3">Sort by newness</a></li>
+                                <li><a href="{{url('/category')}}/{{slug($subcategory->name)}}/4">Sort by price: low to high</a></li>
+                                <li><a href="{{url('/category')}}/{{slug($subcategory->name)}}/5">Sort by price: high to low</a></li> 
                                     </ul>
                                 </li> 
                             </ul>  
@@ -215,35 +216,7 @@
         </div>
     </div>   
 
-{{-- 
-
-
-                        <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
-                            <div class="agile_ecommerce_tab_left dresses_grid">
-                                <div class="hs-wrapper hs-wrapper2">
-                                    <img src="{{ asset('web') }}/images/j2.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j3.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j4.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j5.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j6.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j7.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j8.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j9.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom w3_hs_bottom_sub1">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Gray Solid Chinos</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                        </div>--}} 
+ 
 
 {{-- modal for subcategory products --}}
 

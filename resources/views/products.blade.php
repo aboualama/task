@@ -114,7 +114,7 @@
             <div class="col-md-8 w3ls_dresses_grid_right">
                 <div class="w3ls_dresses_grid_right_grid2">
                     <div class="w3ls_dresses_grid_right_grid2_left">
-                        <h3>Showing Results: 0-{{$all_products->count()}}</h3>
+                        <h3>Showing Results: {{$results->lastItem()}}-{{$all_products->count()}}</h3> 
                     </div>
                     <div class="w3ls_dresses_grid_right_grid2_right">  
                         <ul style= "position: relative; margin-right: 15px; float: left;" >
