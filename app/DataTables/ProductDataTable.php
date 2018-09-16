@@ -37,7 +37,7 @@ class ProductDataTable extends DataTable
      */
     public function query(product $model)
     {
-        return $model->newQuery()->select('id','name', 'description', 'price', 'subcategory_id', 'brand_id', 'admin_id', 'photo',  'created_at', 'updated_at');
+        return product::query()->with('admin')->with('brand')->with('subcategory'); 
     }
 
     /**
@@ -90,10 +90,34 @@ class ProductDataTable extends DataTable
                 'searchable' => false,
             ],
             'description', 
-            'price', 
-            'subcategory_id',
-            'admin_id', 
-            'brand_id', 
+            'price',      
+            [
+                'name'       => 'subcategory',
+                'data'       => 'subcategory.name',
+                'title'      => 'Subcategory',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ],     
+            [
+                'name'       => 'admin',
+                'data'       => 'admin.name',
+                'title'      => 'Admin',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ],     
+            [
+                'name'       => 'brand',
+                'data'       => 'brand.name',
+                'title'      => 'Brand',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ],   
             // 'created_at',
             // 'updated_at', 
             [

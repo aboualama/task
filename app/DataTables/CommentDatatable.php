@@ -31,9 +31,9 @@ class commentDataTable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Comment $model)
+    public function query()
     {
-        return $model->newQuery()->select('id','comment', 'user_id', 'product_id', 'status',  'created_at', 'updated_at');
+        return Comment::query()->with('user')->with('product');
     }
 
     /**
@@ -76,9 +76,25 @@ class commentDataTable extends DataTable
     {
         return [
             'id',
-            'comment', 
-            'user_id', 
-            'product_id', 
+            'comment',        
+            [
+                'name'       => 'user',
+                'data'       => 'user.first_name',
+                'title'      => 'User',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ],       
+            [
+                'name'       => 'product',
+                'data'       => 'product.name',
+                'title'      => 'Product',
+                'exportable' => false,
+                'printable'  => false,
+                'orderable'  => false,
+                'searchable' => false,
+            ],  
             'status',
             'created_at',
             'updated_at',
