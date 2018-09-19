@@ -21,6 +21,8 @@ Route::group(['middleware' => 'setting:registration'] , function(){
 		Route::get('/user/edit', 'auth\registercontroller@edit');
 		Route::put('/user/edit', 'auth\registercontroller@update'); 
 	});
+	Route::get('login/{provider}', 'Auth\sociallogincontroller@redirectToProvider');   // $provider if we need many website
+	Route::get('login/{provider}/callback', 'Auth\sociallogincontroller@handleProviderCallback');
 });
 
  

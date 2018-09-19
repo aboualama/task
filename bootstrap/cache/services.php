@@ -26,22 +26,23 @@
     22 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     23 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
     24 => 'Intervention\\Image\\ImageServiceProvider',
-    25 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    26 => 'Collective\\Html\\HtmlServiceProvider',
-    27 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    28 => 'Yajra\\DataTables\\ButtonsServiceProvider',
-    29 => 'Yajra\\DataTables\\FractalServiceProvider',
-    30 => 'Yajra\\DataTables\\HtmlServiceProvider',
-    31 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-    32 => 'App\\Providers\\AppServiceProvider',
-    33 => 'App\\Providers\\AuthServiceProvider',
-    34 => 'App\\Providers\\EventServiceProvider',
-    35 => 'App\\Providers\\RouteServiceProvider',
-    36 => 'Collective\\Html\\HtmlServiceProvider',
-    37 => 'App\\Providers\\ComposerServiceProvider',
-    38 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-    39 => 'Yajra\\DataTables\\ButtonsServiceProvider',
-    40 => 'Intervention\\Image\\ImageServiceProvider',
+    25 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    26 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    27 => 'Collective\\Html\\HtmlServiceProvider',
+    28 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    29 => 'Yajra\\DataTables\\ButtonsServiceProvider',
+    30 => 'Yajra\\DataTables\\FractalServiceProvider',
+    31 => 'Yajra\\DataTables\\HtmlServiceProvider',
+    32 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+    33 => 'App\\Providers\\AppServiceProvider',
+    34 => 'App\\Providers\\AuthServiceProvider',
+    35 => 'App\\Providers\\EventServiceProvider',
+    36 => 'App\\Providers\\RouteServiceProvider',
+    37 => 'Collective\\Html\\HtmlServiceProvider',
+    38 => 'App\\Providers\\ComposerServiceProvider',
+    39 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+    40 => 'Yajra\\DataTables\\ButtonsServiceProvider',
+    41 => 'Intervention\\Image\\ImageServiceProvider',
   ),
   'eager' => 
   array (
@@ -170,6 +171,7 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'html' => 'Collective\\Html\\HtmlServiceProvider',
     'form' => 'Collective\\Html\\HtmlServiceProvider',
@@ -212,6 +214,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Socialite\\SocialiteServiceProvider' => 
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 

@@ -31,7 +31,7 @@ class productsTableSeeder extends Seeder
 			 		'name'           =>  'mobile' ,    
 					'description'    =>  str_random(10),
 					'price'          =>  rand(1 , 1000), 
-					'subcategory_id' =>  rand(1 , 6),  
+					'subcategory_id' =>  rand(2 , 6),  
 					'brand_id'       =>  1 , 
 					'admin_id'       =>  1 ,  
 					'photo'          =>  rand(10 , 40) . '.jpg',   

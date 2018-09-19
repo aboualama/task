@@ -40,11 +40,7 @@
                                             </form>
                                         </div>
                                     </div> 
-                                </div>  
-
-
-
-
+                                </div>   
 
                                 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
                                     <div class="facts">
@@ -118,8 +114,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="social">
-                                        <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-                                        <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+                                        <li class="social_facebook"><a href="{{url('login/facebook')}}" class="entypo-facebook"></a></li>
+                                        <li class="social_dribbble"><a href="{{url('login/google')}}" class="entypo-dribbble"></a></li>
                                         <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
                                         <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
                                     </ul>
