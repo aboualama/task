@@ -49,8 +49,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>         
-
+                        </div>          
 
                         <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
                             <label for="link" class=" control-label">Social Link</label>
@@ -69,9 +68,6 @@
                             {!! Form::label('Social Image') !!}
                             {!! Form::file('img', ['class' => 'form-control']) !!}
                         </div>
-
-
- 
 
                         <div class="form-group">
                             {!! Form::submit('Add New Social', ['class' => 'form-control btn btn-block btn-success']) !!}

@@ -15,8 +15,13 @@
 @section('content')
 
 
+ @foreach($Cat as $catt) 
 
- 
+ {{ $catt }}
+
+ @endforeach
+
+
 <!-- banner -->
     <div class="banner10" id="home1">
         <div class="container">
@@ -30,7 +35,18 @@
         <div class="container">
             <ul>
                 <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-                <li>{{ $page->title }}</li>
+                <li> 
+
+
+   @foreach($Cat->take(5) as $subcategory)
+                        <li> 
+                            <a href="/category/{{str_replace(' ','-', strtolower($subcategory->name))}}">   {{$subcategory->name}} 
+                            </a> 
+                        </li> 
+                    @endforeach 
+
+
+</li>
             </ul>
         </div>
     </div> 

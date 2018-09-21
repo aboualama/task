@@ -63,12 +63,12 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function(){
 
 		/////// PAGE //////////
 		Route::group(['middleware' => 'setting:page'] , function(){
-				Route::get('/page', 'pageController@index');
-				Route::get('/add/page', 'pageController@create');
-				Route::post('/page', 'pageController@store');
-				Route::get('/page/edit/{id}', 'pageController@edit');
-				Route::put('/page/edit/{id}', 'pageController@update');   
-				Route::delete('/page/delete/{id}', 'pageController@destroy' );
+				Route::get('/page', 'pagecontroller@index');
+				Route::get('/add/page', 'pagecontroller@create');
+				Route::post('/page', 'pagecontroller@store');
+				Route::get('/page/edit/{id}', 'pagecontroller@edit');
+				Route::put('/page/edit/{id}', 'pagecontroller@update');   
+				Route::delete('/page/delete/{id}', 'pagecontroller@destroy' );
 		 });
 
 

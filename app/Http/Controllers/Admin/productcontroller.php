@@ -10,6 +10,7 @@ use App\subcategory;
 use Storage;
 use Auth;
 use Image;
+use Carbon\Carbon;
 
 class productcontroller extends Controller
 {
@@ -92,31 +93,6 @@ class productcontroller extends Controller
         return view('product' , compact('product' , 'rel_products'));
     }
 
-
-
-    public function allproducts($srot=null)
-    {   
-
-        switch ($srot):
-            case null:
-                $products   = Product::orderBy('created_at','DESC')
-                        ->paginate(9); 
-                break;
-            case 1:
-                $products   = Product::orderBy('price','ASC')
-                        ->paginate(9); 
-                break;
-            case 2:
-                $products   = Product::orderBy('created_at','AC')
-                        ->paginate(9);
-                break; 
-        endswitch; 
-
-        $results      = product::paginate(9);
-        $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
-        return view('products' , compact('products' , 'new_products' , 'results'));
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -190,6 +166,57 @@ class productcontroller extends Controller
         return back() ;
     }     
  
+
+
+    public function allproducts($srot=null)
+    {    
+
+        // $dt = Carbon::now();
+        // $dataToday = Data::whereDay('created_at', $dt->day)->get(); 
+
+        // $dataThisWeek = Data::where('created_at', $dt->weekOfYear);
+        // $dataThisWeek = Data::where('created_at', $dt->weekOfMonth);
+        // $dataThisWeek = Data::whereWeek('created_at', $dt->week);
+ 
+        // $dt =  subcategory::whereHas('products', function($query){ 
+        //         Carbon::setWeekStartsAt(Carbon::SUNDAY);
+        //         Carbon::setWeekEndsAt(Carbon::SATURDAY);
+        //         $query->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        //         }); 
+         // dd(Carbon::now()->startOfWeek()->diffInDays());
+
+        switch ($srot):
+            case null:
+                $products   = product::orderBy('created_at','DESC')
+                        ->paginate(9); 
+                break;
+            case 1:
+                $products   = product::orderBy('price','ASC')
+                        ->paginate(9); 
+                break;
+            case 2:
+                $products   = product::orderBy('created_at','AC')
+                        ->paginate(9);
+                break; 
+            case 3:
+                $products   = product::orderBy('price','ASC')
+                        ->paginate(9); 
+                break;
+            case 4:
+                $products   = product::orderBy('created_at','AC')
+                        ->paginate(9);
+                break; 
+            case 5:
+                $products   = product::orderBy('price','ASC')
+                        ->paginate(9); 
+                break; 
+        endswitch; 
+
+        $results      = product::paginate(9);
+        $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
+        return view('products' , compact('products' , 'new_products' , 'results' , 'dt'));
+    }
+
 }
 
 

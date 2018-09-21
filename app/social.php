@@ -9,5 +9,5 @@ class social extends Model
     
 	protected $table 	= 'socials';
 
-    protected $fillable = [ 'name', 'link' , 'icon'   ];
+    protected $fillable = [ 'name', 'link' , 'img'   ];
 }

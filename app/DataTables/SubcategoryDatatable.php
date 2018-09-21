@@ -34,7 +34,7 @@ class SubcategoryDatatable extends DataTable
      */
     public function query(subcategory $model)
     {
-        return $model->newQuery()->select('id', 'name', 'description', 'keywords', 'img', 'category_id', 'created_at', 'updated_at');
+        return subcategory::query()->with('category'); 
     }
 
     /**
@@ -81,9 +81,9 @@ class SubcategoryDatatable extends DataTable
             'description', 
             'keywords',   
             [
-                'name'       => 'category_id',
-                'data'       => 'category_id',
-                'title'      => 'category_id',
+                'name'       => 'category',
+                'data'       => 'category.name',
+                'title'      => 'category',
                 'exportable' => false,
                 'printable'  => false,
                 'orderable'  => false,

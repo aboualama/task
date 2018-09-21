@@ -20,9 +20,9 @@ class CreateSubcategoriesTable extends Migration
             $table->string('keywords')->nullable();
             $table->string('img')->nullable(); 
             $table->string('r_img')->nullable(); 
-            $table->string('r_title')->nullable(); 
+            $table->text('r_title')->nullable(); 
             $table->string('l_img')->nullable(); 
-            $table->string('l_title')->nullable(); 
+            $table->text('l_title')->nullable(); 
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); 
             $table->timestamps();

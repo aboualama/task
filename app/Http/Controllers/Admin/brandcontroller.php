@@ -40,8 +40,8 @@ class brandcontroller extends Controller
         $data = $this->validate(request(), [
                     
                 'name'        => 'required',   
-                'description' => 'required',  
-                'keywords'    => 'required',        
+                'description' => 'required',     
+                'keywords'    => 'required',      
             ]); 
 
         if (request()->hasFile('img')) 

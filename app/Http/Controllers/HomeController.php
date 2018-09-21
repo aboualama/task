@@ -36,7 +36,7 @@ class HomeController extends Controller
         $c_category = subcategory::where('id' , 4)->first();    
         $d_category = subcategory::where('id' , 5)->first();    
         $e_category = subcategory::where('id' , 6)->first();  
-        $category = subcategory::orderBy('created_at' , 'desc')->take(5)->get();
+        $category   = subcategory::orderBy('created_at' , 'desc')->take(5)->get();
 
         $new_products = product::orderBy('created_at' , 'desc')->take(10)->get();  
         return view('home' , compact('new_products' , 'a_category' , 'b_category' , 'c_category' , 'd_category' , 'e_category' , 'category'));

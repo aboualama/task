@@ -22,7 +22,7 @@
 								<div class="row"> 
 
 								 	@foreach($all_categories as $category) 
-									<div class="col-sm-3">
+									<div class="{{$loop->index == 2 ? 'col-sm-2' : 'col-sm-3' }}">
 										<ul class="multi-column-dropdown"> 
 											<h6>{{$category->name}}</h6> 
 											@foreach($category->subcategories as $subcategory)				
@@ -34,15 +34,18 @@
 															{{-- @endif --}}
 														
 													</a>
-												</li> 
-											@endforeach 
+												</li>  
+											@endforeach 	
+												@if($loop->index == 1)
+													<li><a href="{{url('/all-products')}}"><i>Summer Store</i></a></li> 
+												@endif
 										</ul>
 									</div> 
 									@endforeach 
 
 
 
-									<div class="col-sm-3">
+									<div class="col-sm-4">
 										<div class="w3ls_products_pos">
 											<h4>50%<i>Off/-</i></h4>
 											<img src="{{ asset('web') }}/images/1.jpg" alt=" " class="img-responsive" />
@@ -53,7 +56,7 @@
 							</ul>
 						</li>
 
-						<li><a href="{{url('/test')}}" class="{{ Request::is('test') ? 'act' : ''}}" >test</a></li>
+						{{-- <li><a href="{{url('/test')}}" class="{{ Request::is('test') ? 'act' : ''}}" >test</a></li> --}}
 						
 						@if($page_setting == 'active')
 							@foreach($thepages as $pages)

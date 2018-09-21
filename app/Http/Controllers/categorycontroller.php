@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\subcategory; 
-use App\Product; 
+use App\product; 
 
 class categorycontroller extends Controller
 {
@@ -23,24 +23,38 @@ class categorycontroller extends Controller
 
         switch ($srot):
             case null:
-                $products   = Product::where('subcategory_id' , $subcategory->id)
+                $products   = product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('created_at','DESC')
                         ->paginate(9);
                 break;
             case 1:
-                $products   = Product::where('subcategory_id' , $subcategory->id)
+                $products   = product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('price','ASC')
                         ->paginate(9);
                 break;
             case 2:
-                $products   = Product::where('subcategory_id' , $subcategory->id)
+                $products   = product::where('subcategory_id' , $subcategory->id)
                         ->orderBy('created_at','AC')
                         ->paginate(9);
                 break;
-             
+            case 3:
+                $products   = product::where('subcategory_id' , $subcategory->id)
+                        ->orderBy('price','ASC')
+                        ->paginate(9);
+                break;
+            case 4:
+                $products   = product::where('subcategory_id' , $subcategory->id)
+                        ->orderBy('created_at','AC')
+                        ->paginate(9);
+                break;
+            case 5:
+                $products   = product::where('subcategory_id' , $subcategory->id)
+                        ->orderBy('price','ASC')
+                        ->paginate(9);
+                break;  
         endswitch; 
  
-        $results      = Product::where('subcategory_id' , $subcategory->id)->paginate(9);
+        $results      = product::where('subcategory_id' , $subcategory->id)->paginate(9);
         $new_products = product::limit(8)->get();   
     	return view ('subcategory' , compact('subcategory' , 'products' , 'new_products' , 'results'));
 

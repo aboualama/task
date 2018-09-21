@@ -68,10 +68,4 @@ Route::group(['middleware' => 'setting:e_commerce'] , function(){
 	Route::get('canceled','PaymentController@canceled')->name('canceled');
 
 }); 
-
-Route::get('/test',  function(){   /// test page
-
-	return view('test');
-
-});  
  
