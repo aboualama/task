@@ -10,7 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
+
+Route::pattern('id', '[0-9]+');
+
+
 Route::get('/', 'HomeController@index')->name('home'); 
 
 
@@ -60,6 +63,8 @@ Route::group(['middleware' => 'setting:e_commerce'] , function(){
 			Route::get('/checkout', 'cartcontroller@checkout');
 		}); 
 
+		Route::post('/products/search', 'Admin\productcontroller@search');
+		Route::get('/products/search', 'Admin\productcontroller@search');
 	});
 
  

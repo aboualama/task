@@ -13,13 +13,7 @@
 @endsection
 
 @section('content')
-
-
- @foreach($Cat as $catt) 
-
- {{ $catt }}
-
- @endforeach
+  
 
 
 <!-- banner -->
@@ -34,19 +28,8 @@
     <div class="breadcrumb_dress">
         <div class="container">
             <ul>
-                <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-                <li> 
-
-
-   @foreach($Cat->take(5) as $subcategory)
-                        <li> 
-                            <a href="/category/{{str_replace(' ','-', strtolower($subcategory->name))}}">   {{$subcategory->name}} 
-                            </a> 
-                        </li> 
-                    @endforeach 
-
-
-</li>
+                <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+                <li> {{ $page->title }} </li>
             </ul>
         </div>
     </div> 

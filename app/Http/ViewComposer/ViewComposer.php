@@ -37,12 +37,9 @@ class ViewComposer {
 		$view->with('comment_setting', DB::table('settings')->where('name' , 'comment')->value('status') );
 		$view->with('order_setting', DB::table('settings')->where('name' , 'order')->value('status') );
 
-		// $view->with('Cat', subcategory::whereHas('products', function($query){
- 	// 				Carbon::setWeekStartsAt(Carbon::SUNDAY);
-  //    			    Carbon::setWeekEndsAt(Carbon::SATURDAY);
-		// 	$query->whereBetween('created_at', [Carbon::now()->startOfWeek( ), Carbon::now()->endOfWeek( )])->get(); 
- 	// 		})->get()); 
-    
+		$view->with('cat_has_new_pro', subcategory::whereHas('products', function($query){ 
+						$query->where('created_at',  '>=' , Carbon::now()->subDays(7)); 
+		 			})->get());  
  
     }
 }

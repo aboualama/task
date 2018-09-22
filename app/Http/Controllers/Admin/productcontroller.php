@@ -169,22 +169,7 @@ class productcontroller extends Controller
 
 
     public function allproducts($srot=null)
-    {    
-
-        // $dt = Carbon::now();
-        // $dataToday = Data::whereDay('created_at', $dt->day)->get(); 
-
-        // $dataThisWeek = Data::where('created_at', $dt->weekOfYear);
-        // $dataThisWeek = Data::where('created_at', $dt->weekOfMonth);
-        // $dataThisWeek = Data::whereWeek('created_at', $dt->week);
- 
-        // $dt =  subcategory::whereHas('products', function($query){ 
-        //         Carbon::setWeekStartsAt(Carbon::SUNDAY);
-        //         Carbon::setWeekEndsAt(Carbon::SATURDAY);
-        //         $query->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        //         }); 
-         // dd(Carbon::now()->startOfWeek()->diffInDays());
-
+    {       
         switch ($srot):
             case null:
                 $products   = product::orderBy('created_at','DESC')
@@ -214,7 +199,18 @@ class productcontroller extends Controller
 
         $results      = product::paginate(9);
         $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
-        return view('products' , compact('products' , 'new_products' , 'results' , 'dt'));
+        return view('products' , compact('products' , 'new_products' , 'results'));
+    }
+
+
+
+    public function search(Request $request)
+    { 
+        $search       = $request->search;  
+        $products     = product::where('name','like','%'.$search.'%')->get();
+        $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
+
+        return view('search', compact('products' , 'new_products', 'search' , 'results'));   
     }
 
 }

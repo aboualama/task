@@ -26,7 +26,7 @@
     <div class="breadcrumb_dress">
         <div class="container">
             <ul>
-                <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+                <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
                 <li>{{$product->name}}</li>
             </ul>
         </div>
@@ -38,8 +38,8 @@
             <div class="col-md-4 single-left">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="{{ asset('web') }}/images/a.jpg">
-                            <div class="thumb-image"> <img src="{{ asset('web') }}/images/a.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="{{ asset('/') }}/uploads/product/{{$product->photo}}">
+                            <div class="thumb-image"> <img src="{{ asset('/') }}/uploads/product/{{$product->photo}}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                         <li data-thumb="{{ asset('web') }}/images/b.jpg">
                              <div class="thumb-image"> <img src="{{ asset('web') }}/images/b.jpg" data-imagezoom="true" class="img-responsive"> </div>
@@ -68,20 +68,6 @@
             </div>
             <div class="col-md-8 single-right">
                 <h3> {{$product->name}}</h3>
-                <div class="rating1">
-                    <span class="starRating">
-                        <input id="rating5" type="radio" name="rating" value="5">
-                        <label for="rating5">5</label>
-                        <input id="rating4" type="radio" name="rating" value="4">
-                        <label for="rating4">4</label>
-                        <input id="rating3" type="radio" name="rating" value="3" checked>
-                        <label for="rating3">3</label>
-                        <input id="rating2" type="radio" name="rating" value="2">
-                        <label for="rating2">2</label>
-                        <input id="rating1" type="radio" name="rating" value="1">
-                        <label for="rating1">1</label>
-                    </span>
-                </div>
                     <div class="description">
                         <h5><i>Description</i></h5>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
@@ -91,60 +77,8 @@
                             ratione voluptatem sequi nesciunt.</p>
                     </div>
                     <div class="color-quality">
-        {{--                 <div class="color-quality-left">
-                            <h5>Color : </h5>
-                            <ul>
-                                <li><a href="#"><span></span>Red</a></li>
-                                <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                <li><a href="#" class="gray"><span></span>Violet</a></li>
-                            </ul>
-                        </div> --}}
-                        <div class="color-quality-right" style="margin-left: 0 ">
-                            <h5>Quality :</h5>
-                             <div class="quantity"> 
-                                <div class="quantity-select">                           
-                                    <div class="entry value-minus1">&nbsp;</div>
-                                    <div class="entry value1"><span>1</span></div>
-                                    <div class="entry value-plus1 active">&nbsp;</div>
-                                </div>
-                            </div>
-                            <!--quantity-->
-                                    <script>
-                                    $('.value-plus1').on('click', function(){
-                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
-                                        divUpd.text(newVal);
-                                    });
-
-                                    $('.value-minus1').on('click', function(){
-                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
-                                        if(newVal>=1) divUpd.text(newVal);
-                                    });
-                                    </script>
-                                <!--quantity-->
-
-                        </div>
                         <div class="clearfix"> </div>
                     </div>
-{{--                     <div class="occasional">
-                        <h5>Occasion :</h5>
-                        <div class="colr ert">
-                            <div class="check">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Occasion Wear</label>
-                            </div>
-                        </div>
-                        <div class="colr">
-                            <div class="check">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Party Wear</label>
-                            </div>
-                        </div>
-                        <div class="colr">
-                            <div class="check">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Formal Wear</label>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div> --}}
                     <div class="simpleCart_shelfItem">
                             <p><span>$320</span> <i class="item_price">$250</i></p>
                             <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>

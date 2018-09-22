@@ -14,7 +14,7 @@
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                   <div class="panel-body panel_text">  
                                     <ul>   
-                                        @foreach($all_subcategories as $subcategory)              
+                                        @foreach($cat_has_new_pro as $subcategory)              
                                             <li>
                                                 <a href="/category/{{slug($subcategory->name)}}">{{$subcategory->name}} 
                                                 </a>
