@@ -136,7 +136,7 @@
  
 
                         <div class="form-group">
-                            {!! Form::submit('Add New Subcategory', ['class' => 'form-control btn btn-block btn-success']) !!}
+                            {!! Form::submit('Edit Subcategory', ['class' => 'form-control btn btn-block btn-success']) !!}
                         </div>
                 {!! Form::close() !!}
        </table>

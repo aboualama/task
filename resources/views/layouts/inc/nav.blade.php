@@ -25,14 +25,16 @@
 									<div class="{{$loop->index == 2 ? 'col-sm-2' : 'col-sm-3' }}">
 										<ul class="multi-column-dropdown"> 
 											<h6>{{$category->name}}</h6> 
-											@foreach($category->subcategories as $subcategory)				
-												<li>
+											@foreach($category->subcategories as $subcategory)					
+												<li> 
 													<a href="/category/{{slug($subcategory->name)}}">	{{$subcategory->name}}
 														
-															{{-- @if( ) --}}
-																<span>New</span>
-															{{-- @endif --}}
-														
+														@foreach($new_pro as $pro)
+															@if( $subcategory->id == $pro->subcategory_id )  
+																 <span>New</span> 
+															@endif  
+														@endforeach 
+
 													</a>
 												</li>  
 											@endforeach 	

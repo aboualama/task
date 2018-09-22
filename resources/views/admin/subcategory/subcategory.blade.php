@@ -11,13 +11,13 @@
   <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Social
+    Subcategory
 
     <small>Cpanel</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> Home</a></li> 
-    <li><a href="#">Social</a></li> 
+    <li><a href="#">Subcategory</a></li> 
   </ol>
 </section>
 

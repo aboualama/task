@@ -39,8 +39,12 @@ class ViewComposer {
 
 		$view->with('cat_has_new_pro', subcategory::whereHas('products', function($query){ 
 						$query->where('created_at',  '>=' , Carbon::now()->subDays(7)); 
-		 			})->get());  
- 
+		 			})->get());   
+		$view->with('new_pro', product::where('created_at',  '>=' , Carbon::now()->subDays(7))->get());  
+
+
+		$view->with('foot_sub', subcategory::where('category_id' , 3 )->get());  
+
     }
 }
 

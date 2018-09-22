@@ -34,12 +34,13 @@
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                    <div class="panel-body panel_text">
-                                    <ul>
-                                        <li><a href="sandals.html">Flats</a></li>
-                                        <li><a href="sandals.html">Sandals</a></li>
-                                        <li><a href="sandals.html">Boots</a></li>
-                                        <li><a href="sandals.html">Heals</a></li>
-                                        <li><a href="sandals.html">Shirts</a></li>
+                                    <ul> 
+                                        @foreach($foot_sub as $subcategory)              
+                                            <li>
+                                                <a href="/category/{{slug($subcategory->name)}}">{{$subcategory->name}} 
+                                                </a>
+                                            </li> 
+                                        @endforeach  
                                     </ul>
                                   </div>
                                 </div>
