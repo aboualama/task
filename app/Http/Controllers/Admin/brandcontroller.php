@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\brandDataTable;
 use App\brand;
+use Storage;
 
 class brandcontroller extends Controller
 {
@@ -47,12 +48,12 @@ class brandcontroller extends Controller
         if (request()->hasFile('img')) 
         { 
         
-         $public_path = 'uploads/images';
+         $public_path = 'uploads/brand';
          $img_name = time() . '.' . request('img')->getClientOriginalExtension();
          request('img')->move($public_path , $img_name); 
         }else
         { 
-            $img_name = 'banner3.jpg';  
+            $img_name = 'default.jpg';  
         } 
 
         $data['img']       =  $img_name; 
@@ -96,6 +97,7 @@ class brandcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
+        $file = brand::find($id);
         $data = $this->validate(request(), [
                     
                 'name'        => 'required',   
@@ -105,16 +107,16 @@ class brandcontroller extends Controller
 
         if (request()->hasFile('img')) 
         { 
-        
-         $public_path = 'uploads/images';
+    
+         if($file->img !==  'default.jpg'){
+            Storage::delete('brand/'.$file->img);    
+         }
+         $public_path = 'uploads/brand';
          $img_name = time() . '.' . request('img')->getClientOriginalExtension();
          request('img')->move($public_path , $img_name); 
-        }else
-        { 
-            $img_name = 'banner3.jpg';  
-        } 
-
-        $data['img']       =  $img_name; 
+       
+            $data['img']       =  $img_name; 
+        }  
 
      
         $brand     = brand::find($id);
@@ -132,6 +134,9 @@ class brandcontroller extends Controller
     public function destroy($id)
     {
         $brand     = brand::find($id);
+         if($brand->img !==  'default.jpg'){
+            Storage::delete('brand/'.$brand->img);    
+         }
         $brand->delete();
 
         return back() ;

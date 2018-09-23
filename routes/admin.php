@@ -27,12 +27,16 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function(){
 
 
 	Route::group(['middleware' => 'adminauth:admin'] , function(){
-	
-	
-		Route::any('/logout', 'AdminAuthController@logout' );  
-	 
+
+
 		Route::get('/', function () { return view('admin.dashboard'); }); 
- 
+	
+		/////// Admin //////////
+		Route::get('/admin', 'AdminAuthController@index');  
+		Route::get('/register', 'RegisterController@showRegistrationForm' );
+		Route::post('/register', 'RegisterController@register' ); 
+		Route::delete('/admin/delete/{id}', 'AdminAuthController@destroy' );
+		Route::any('/logout', 'AdminAuthController@logout' );  
 
 
 		/////// SETTING //////////

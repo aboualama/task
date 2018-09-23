@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Admin; 
 use App\Mail\AdminResetPassword;
+use App\DataTables\AdminDatatable;
 use Carbon\Carbon;
 use DB;
 use Mail;
@@ -13,10 +14,15 @@ use Mail;
 
 class AdminAuthController extends Controller
 {
+
+	public function index(AdminDatatable $admin)
+    {
+        return $admin->render('admin.admin.admin' , ['title' => 'Admin Control']); 
+    }
    
    	public function loginpage()
    	{ 
-		return view('admin.auth.login');
+		return view('admin.admin.auth.login');
    	}
    
    	public function login()
@@ -95,6 +101,14 @@ class AdminAuthController extends Controller
  		return redirect ('admin/login');
    }
 
+ 
+    public function destroy($id)
+    {
+        $admin     = admin::find($id);
+        $admin->delete();
+
+        return back() ;
+    }
 
 
 }

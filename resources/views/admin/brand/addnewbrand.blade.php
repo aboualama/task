@@ -75,20 +75,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div> 
-         
-                        
-                        <div class="form-group">
-                            {!! Form::label('Category') !!}
-                              <select  class="form-control" name="category_id"> 
-                                <option selected>Choose...</option>
-
-                                    @foreach($all_categories as $category)    
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>  
-                                    @endforeach 
-
-                              </select> 
-                        </div>
+                        </div>  
 
                         <div class="form-group">
                             {!! Form::label('brand Image') !!}

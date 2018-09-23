@@ -89,9 +89,11 @@
                                     <p><span>$420</span> <i class="item_price">{{$product->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>
                                 </div>
-                                <div class="dresses_grid_pos">
-                                    <h6>New</h6>
-                                </div>
+                                @if($product->created_at > Carbon\Carbon::now()->subDays(7))
+                                    <div class="dresses_grid_pos">
+                                        <h6>New</h6>
+                                    </div>
+                                @endif
                             </div>
                         </div> 
                     @endforeach

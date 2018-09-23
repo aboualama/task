@@ -49,7 +49,7 @@
           </span>
         @endif
       </div>
-      <div class="form-group has-feedback {{ $errors->has('name') ? ' has-error' : '' }}">
+      <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
         <input type="email" name="email" value="{{ old('email') }}"  class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @if ($errors->has('email'))
