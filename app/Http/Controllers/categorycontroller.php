@@ -90,4 +90,4 @@ class categorycontroller extends Controller
         $new_products = product::limit(8)->get();    
         return view ('brand' , compact('brand' , 'products' , 'new_products')); 
     } 
-}
+} 
