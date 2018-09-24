@@ -36,17 +36,17 @@ class ViewComposer {
 		$view->with('product_setting', DB::table('settings')->where('name' , 'product')->value('status') );
 		$view->with('comment_setting', DB::table('settings')->where('name' , 'comment')->value('status') );
 		$view->with('order_setting', DB::table('settings')->where('name' , 'order')->value('status') );
+		$view->with('e_commerce_setting', DB::table('settings')->where('name' , 'e_commerce')->value('status') );
 
 		$view->with('cat_has_new_pro', subcategory::whereHas('products', function($query){ 
-						$query->where('created_at',  '>=' , Carbon::now()->subDays(7)); 
-		 			})->get());   
-		$view->with('new_pro', product::where('created_at',  '>=' , Carbon::now()->subDays(7))->get());  
+						$query->where('created_at',  '>=' , Carbon::now()->subDays(7)); })->get());   		// For Sidebar
+		$view->with('foot_sub', subcategory::where('category_id',  3)->get());  							// For Sidebar
+		$view->with('new_pro', product::where('created_at',  '>=' , Carbon::now()->subDays(7))->get());  	// For Nav
 
-
-		$view->with('foot_sub', subcategory::where('category_id' , 3 )->get());  
+ 
 
     }
 }
 
-		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand' , 'comment' , order
+		//  'registration' , 'contact' , 'page' , 'social' , 'category' , 'subcategory' , 'product' , 'brand' , 'comment' , 'order' , 'e_commerce'
 

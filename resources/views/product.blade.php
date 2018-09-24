@@ -74,10 +74,12 @@
                             eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                             Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut 
                             odit aut fugit, sed quia consequuntur magni dolores eos qui 
-                            ratione voluptatem sequi nesciunt.</p>
+                            ratione voluptatem sequi nesciunt.</p> 
                     </div>
                     <div class="color-quality">
-                        <div class="clearfix"> </div>
+                        <a href="{{ url('/brand')}}/{{slug($product->brand->name)}}">
+                            <img src="{{ asset('/') }}/uploads/brand/{{ $product->brand->img }}" alt=" " class="img-responsive" />
+                        </a> 
                     </div>
                     <div class="simpleCart_shelfItem">
                             <p><span>$320</span> <i class="item_price">$250</i></p>
@@ -126,8 +128,7 @@
                             <div class="col-xs-10 additional_info_sub_grid_right">
                                 <div class="additional_info_sub_grid_rightl">
                                     <a href="#">{{  $comment->user['first_name'] }}</a>
-                                    <h5>{{$comment->created_at->format('d-M-Y')}}.</h5>
-                                    {{-- <h5>{{\Carbon\Carbon::parse($comment->created_at)->format('d-M-Y')}}.</h5> --}}
+                                    <h5>{{$comment->created_at->format('d-M-Y')}}.</h5> 
                                     <p>{{$comment->comment}}.</p>
                                 </div>
  
@@ -201,11 +202,11 @@
                                 <img src="{{ asset('web/images') }}/{{$rel_pro->photo}}" alt=" " class="img-responsive"> 
                                 <div class="w3_hs_bottom">
                                     <div class="flex_ecommerce">
-                                        <a href="{{$rel_pro->name}}" data-toggle="modal" data-target="#myModal{{$rel_pro->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                        <a href="{{$rel_pro->id}}" data-toggle="modal" data-target="#relModal{{$rel_pro->id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                                     </div>
                                 </div>
                             </div>
-                            <h5><a href="{{url('product')}}/{{$rel_pro->id}}">{{$rel_pro->name}} {{$rel_pro->subcategory->id}} </a></h5>
+                            <h5><a href="{{url('product')}}/{{$rel_pro->id}}">{{$rel_pro->name}}  </a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$rel_pro->price}}</i></p>
                                 <p><a class="item_add" href="{{url('cart/add')}}/{{$rel_pro->id}}">Add to cart</a></p>
@@ -248,7 +249,7 @@
     </div> 
 
     @foreach($rel_products as $rel_pro)
-    <div class="modal video-modal fade" id="myModal{{$rel_pro->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+    <div class="modal video-modal fade" id="relModal{{$rel_pro->id}}" tabindex="-1" role="dialog" aria-labelledby="relModal{{$rel_pro->id}}">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -260,45 +261,12 @@
                             <img src="{{ asset('web/images') }}/{{$rel_pro->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
-                            <h4>a good look women's Long Skirt</h4>
-                            <p>Ut enim ad minim veniam, quis nostrud 
-                                exercitation ullamco laboris nisi ut aliquip ex ea 
-                                commodo consequat.Duis aute irure dolor in 
-                                reprehenderit in voluptate velit esse cillum dolore 
-                                eu fugiat nulla pariatur. Excepteur sint occaecat 
-                                cupidatat non proident, sunt in culpa qui officia 
-                                deserunt mollit anim id est laborum.</p>
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                            <h4>{{$rel_pro->name}}</h4>
+                            <p>{{$rel_pro->description}}.</p> 
                             <div class="modal_body_right_cart simpleCart_shelfItem">
-                                <p><span>$320</span> <i class="item_price">$250</i></p>
+                                <p><span>$320</span> <i class="item_price">${{$rel_pro->price}}</i></p>
                                 <p><a class="item_add" href="{{url('cart/add')}}/{{$rel_pro->id}}">Add to cart</a></p>
-                            </div>
-                            <h5>Color</h5>
-                            <div class="color-quality">
-                                <ul>
-                                    <li><a href="#"><span></span>Red</a></li>
-                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                </ul>
-                            </div>
+                            </div> 
                         </div>
                         <div class="clearfix"> </div>
                     </div>

@@ -122,12 +122,12 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function(){
 
 		/////// PRODUCT //////////  
 		Route::group(['middleware' => 'setting:product'] , function(){
-				Route::get('/product', 'productController@index');
-				Route::get('/add/product', 'productController@create');
-				Route::post('/product', 'productController@store');
-				Route::get('/product/edit/{id}', 'productController@edit');
-				Route::put('/product/edit/{id}', 'productController@update');   
-				Route::delete('/product/delete/{id}', 'productController@destroy' );
+				Route::get('/product', 'productcontroller@index');
+				Route::get('/add/product', 'productcontroller@create');
+				Route::post('/product', 'productcontroller@store');
+				Route::get('/product/edit/{id}', 'productcontroller@edit');
+				Route::put('/product/edit/{id}', 'productcontroller@update');   
+				Route::delete('/product/delete/{id}', 'productcontroller@destroy' );
 		 });
 
 

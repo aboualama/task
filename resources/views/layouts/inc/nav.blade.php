@@ -27,7 +27,7 @@
 											<h6>{{$category->name}}</h6> 
 											@foreach($category->subcategories as $subcategory)					
 												<li> 
-													<a href="/category/{{slug($subcategory->name)}}">	{{$subcategory->name}}
+													<a href="{{url('/category')}}/{{slug($subcategory->name)}}">	{{$subcategory->name}}
 														
 														@foreach($new_pro as $pro)
 															@if( $subcategory->id == $pro->subcategory_id )  

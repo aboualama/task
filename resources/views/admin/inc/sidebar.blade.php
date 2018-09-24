@@ -115,7 +115,8 @@
             </li>
         @endif
 
- 
+
+    @if($e_commerce_setting == 'active')
         @if($product_setting == 'active')
           <li class="treeview ">
             <a href="#">
@@ -204,6 +205,7 @@
             </ul>
           </li> 
         @endif
+    @endif
 
 
 

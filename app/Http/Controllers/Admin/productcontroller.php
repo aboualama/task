@@ -19,9 +19,9 @@ class productcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProductDataTable $product)
+    public function index(productDataTable $product)
     {
-        return $product->render('admin.product.product' , ['title' => 'Product Control']); 
+        return $product->render('admin.product.product' , ['title' => 'product Control']); 
     }
 
     /**
@@ -59,12 +59,12 @@ class productcontroller extends Controller
         { 
         
          $file = request('photo'); 
-         $photo_name = time() . '.' . request('photo')->getClientOriginalExtension();
-
+         $photo_name = time() . '.' . request('photo')->getClientOriginalExtension(); 
          $public_path = 'uploads/product/' . $photo_name ;
          // $public_path = 'uploads/product/';  
+         Image::make($file)->insert('uploads/watermark/A.png' )->save($public_path);
 
-         Image::make($file)->resize(300, 500)->insert('uploads/watermark/A.png', 'bottom-right', 10, 10)->save($public_path);
+         // Image::make($file)->resize(300, 500)->insert('uploads/watermark/A.png', 'bottom-right', 10, 10)->save($public_path);
          // request('photo')->move($public_path , $photo_name); 
         }else
         { 
@@ -133,11 +133,12 @@ class productcontroller extends Controller
             $product     = product::find($id);
                 if($product->photo !==  'default.jpg'){
                     Storage::delete('product/'.$product->photo);       
-                }   
-            
-             $public_path = 'uploads/product';
-             $photo_name = time() . '.' . request('photo')->getClientOriginalExtension();
-             request('photo')->move($public_path , $photo_name); 
+                }  
+
+            $file = request('photo'); 
+            $photo_name = time() . '.' . request('photo')->getClientOriginalExtension(); 
+            $public_path = 'uploads/product/' . $photo_name ;
+            Image::make($file)->insert('uploads/watermark/A.png' )->save($public_path);
 
          $data['photo']       =  $photo_name; 
      
@@ -205,6 +206,17 @@ class productcontroller extends Controller
 
 
     public function search(Request $request)
+    { 
+        $search       = $request->search;  
+        $products     = product::where('name','like','%'.$search.'%')->get();
+        $new_products = product::orderBy('created_at','DESC')->limit(8)->get();   
+
+        return view('search', compact('products' , 'new_products', 'search' , 'results'));   
+    }
+
+
+
+    public function as(Request $request)
     { 
         $search       = $request->search;  
         $products     = product::where('name','like','%'.$search.'%')->get();

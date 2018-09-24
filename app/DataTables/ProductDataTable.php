@@ -37,7 +37,7 @@ class ProductDataTable extends DataTable
      */
     public function query(product $model)
     {
-        return product::query()->with('admin')->with('brand')->with('subcategory'); 
+        return $model->query()->with('admin')->with('brand')->with('subcategory'); 
     }
 
     /**

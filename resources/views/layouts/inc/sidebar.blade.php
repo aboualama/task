@@ -48,9 +48,9 @@
                             </div>
                             <ul class="panel_bottom">
                                 <li><a href="{{url('/all-products')}}">Summer Store</a></li>
-                                <li><a href="{{url('all-products')}}/3">New In Clothing</a></li>
-                                <li><a href="sandals.html">New In Shoes</a></li>
-                                <li><a href="products.html">Latest Watches</a></li>
+                                <li><a href="{{url('/Category')}}/clothing">New In Clothing</a></li>
+                                <li><a href="{{url('/Category')}}/shoes">New In Shoes</a></li>
+                                <li><a href="{{url('/Category')}}/watches">Latest Watches</a></li>
                             </ul>
                         </div>
                     </div>

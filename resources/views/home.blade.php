@@ -72,7 +72,7 @@ Home
                             @foreach($a_category->products->take(3) as $a_tap_pro)
                             <div class="col-md-4 agile_ecommerce_tab_left">
                                 <div style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web') }}/images/6.jpg" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('/') }}/uploads/product/{{$a_tap_pro->photo}}"  class="img-responsive" /> 
                                     <div class="w3_hs_bottom">
                                         <ul>
                                             <li>
@@ -101,7 +101,7 @@ Home
                             @foreach($b_category->products->take(3) as $b_tap_pro)
                             <div class="col-md-4 agile_ecommerce_tab_left">
                                 <div  style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web') }}/images/6.jpg" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('/') }}/uploads/product/{{$b_tap_pro->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom">
                                         <ul>
                                             <li>
@@ -130,7 +130,7 @@ Home
                             @foreach($c_category->products->take(3) as $c_tap_pro)
                             <div class="col-md-4 agile_ecommerce_tab_left">
                                 <div  style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web') }}/images/6.jpg" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('/') }}/uploads/product/{{$c_tap_pro->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom">
                                         <ul>
                                             <li>
@@ -159,7 +159,7 @@ Home
                             @foreach($d_category->products->take(3) as $d_tap_pro)
                             <div class="col-md-4 agile_ecommerce_tab_left">
                                 <div  style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web') }}/images/6.jpg" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('/') }}/uploads/product/{{$d_tap_pro->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom">
                                         <ul>
                                             <li>
@@ -188,7 +188,7 @@ Home
                             @foreach($e_category->products->take(3) as $e_tap_pro)
                             <div class="col-md-4 agile_ecommerce_tab_left">
                                 <div  style="position: relative;  margin: 0 auto; overflow: hidden;">
-                                    <img src="{{ asset('web') }}/images/6.jpg" alt=" " class="img-responsive" /> 
+                                    <img src="{{ asset('/') }}/uploads/product/{{$e_tap_pro->photo}}" alt=" " class="img-responsive" /> 
                                     <div class="w3_hs_bottom">
                                         <ul>
                                             <li>
@@ -215,7 +215,7 @@ Home
             </div>
 
 
-            <!--modal-video-->
+            <!--modal -->
                 @foreach($a_category->products->take(3) as $a_tap_pro) 
                     <div class="modal video-modal fade" id="myModa{{$a_tap_pro->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal{{$a_tap_pro->id}}">
                         <div class="modal-dialog" role="document">
@@ -226,7 +226,7 @@ Home
                                 <section>
                                     <div class="modal-body">
                                         <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/20.jpg" alt=" " class="img-responsive" />
+                                            <img src="{{ asset('/') }}/uploads/product/{{$a_tap_pro->photo}}" alt=" " class="img-responsive" />
                                         </div>
                                         <div class="col-md-7 modal_body_right">
                                             <h4>a good look women's shirt</h4>
@@ -287,7 +287,7 @@ Home
                                 <section>
                                     <div class="modal-body">
                                         <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/20.jpg" alt=" " class="img-responsive" />
+                                            <img src="{{ asset('/') }}/uploads/product/{{$b_tap_pro->photo}}" alt=" " class="img-responsive" />
                                         </div>
                                         <div class="col-md-7 modal_body_right">
                                             <h4>a good look women's shirt</h4>
@@ -348,7 +348,7 @@ Home
                                 <section>
                                     <div class="modal-body">
                                         <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/20.jpg" alt=" " class="img-responsive" />
+                                            <img src="{{ asset('/') }}/uploads/product/{{$c_tap_pro->photo}}" alt=" " class="img-responsive" />
                                         </div>
                                         <div class="col-md-7 modal_body_right">
                                             <h4>a good look women's shirt</h4>
@@ -409,7 +409,7 @@ Home
                                 <section>
                                     <div class="modal-body">
                                         <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/20.jpg" alt=" " class="img-responsive" />
+                                            <img src="{{ asset('/') }}/uploads/product/{{$d_tap_pro->photo}}" alt=" " class="img-responsive" />
                                         </div>
                                         <div class="col-md-7 modal_body_right">
                                             <h4>a good look women's shirt</h4>
@@ -470,7 +470,7 @@ Home
                                 <section>
                                     <div class="modal-body">
                                         <div class="col-md-5 modal_body_left">
-                                            <img src="{{ asset('web') }}/images/20.jpg" alt=" " class="img-responsive" />
+                                            <img src="{{ asset('/') }}/uploads/product/{{$e_tap_pro->photo}}" alt=" " class="img-responsive" />
                                         </div>
                                         <div class="col-md-7 modal_body_right">
                                             <h4>a good look women's shirt</h4>
@@ -619,37 +619,37 @@ Home
         </div>
     </div>
 <!-- //special-deals -->
-<!-- new-products -->
+<!-- new-products --> 
 
     <div class="w3l_related_products">
         <div class="container">
             <h3>New Products</h3>
-            <ul id="flexiselDemo2">       
+            <ul id="flexiselDemo2">  
 
-                @foreach($new_products as $product)  
+                @foreach($new_products as $newproduct) 
+
                 <li>
                     <div class="w3l_related_products_grid">
                         <div class="agile_ecommerce_tab_left dresses_grid">
                             <div class="hs-wrapper3" style="position: relative;  margin: 0 auto; overflow: hidden;"> 
-                                <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive"> 
+                                <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                                 <div class="w3_hs_bottom">
                                     <div class="flex_ecommerce">
-                                        <a href="{{$product->name}}" data-toggle="modal" data-target="#myModal{{$product->id}}">
+                                        <a href="{{$newproduct->name}}" data-toggle="modal" data-target="#newModal{{$newproduct->id}}">
                                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <h5> <a href="{{url('product')}}/{{$product->id}}">{{$product->name}}</a> </h5>
+                            <h5><a href="{{url('product')}}/{{$newproduct->id}}">{{$newproduct->name}}</a></h5>
                             <div class="simpleCart_shelfItem">
-                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$product->price}}</i></p>
-                                <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>
+                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$newproduct->price}}</i></p>
+                                <p><a class="item_add" href="{{url('cart/add')}}/{{$newproduct->id}}">Add to cart</a></p>
                             </div>
-                        </div>
+                        </div>      
                     </div>
                 </li> 
                 @endforeach
- 
             </ul>
                 <script type="text/javascript">
                     $(window).load(function() {
@@ -680,10 +680,11 @@ Home
                 </script>
                 <script type="text/javascript" src="{{ asset('web') }}/js/jquery.flexisel.js"></script>
         </div>
-    </div>
- 
- @foreach($new_products as $product)
-    <div class="modal video-modal fade" id="myModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+    </div>  
+{{-- modal for new products --}}
+
+    @foreach($new_products as $newproduct) 
+    <div class="modal video-modal fade" id="newModal{{$newproduct->id}}" tabindex="-1" role="dialog" aria-labelledby="newModal{{$newproduct->id}}">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -692,48 +693,16 @@ Home
                 <section>
                     <div class="modal-body">
                         <div class="col-md-5 modal_body_left">
-                            <img src="{{ asset('web') }}/images/39.jpg" alt=" " class="img-responsive" />
+                            <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
-                            <h4> {{$product->name}}</h4>
-                            <p>Ut enim ad minim veniam, quis nostrud 
-                                exercitation ullamco laboris nisi ut aliquip ex ea 
-                                commodo consequat.Duis aute irure dolor in 
-                                reprehenderit in voluptate velit esse cillum dolore 
-                                eu fugiat nulla pariatur. Excepteur sint occaecat 
-                                cupidatat non proident, sunt in culpa qui officia 
-                                deserunt mollit anim id est laborum.</p>
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                            <h4> {{$newproduct->name}}</h4>
+                            <p>{{$newproduct->description}}. </p>
+   
                             <div class="modal_body_right_cart simpleCart_shelfItem">
-                                <p><span>$320</span> <i class="item_price">$250</i></p>
-                                <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>
-                            </div>
-                            <h5>Color</h5>
-                            <div class="color-quality">
-                                <ul>
-                                    <li><a href="#"><span></span>Red</a></li>
-                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                </ul>
-                            </div>
+                                <p><span>$3110</span> <i class="item_price">${{$newproduct->price}}</i></p>
+                                <p><a class="item_add" href="{{url('cart/add')}}/{{$newproduct->id}}">Add to cart </a></p>
+                            </div> 
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -741,29 +710,23 @@ Home
             </div>
         </div>
     </div>
- @endforeach
+    @endforeach
+
 <!-- //new-products -->
 <!-- top-brands -->
     <div class="top-brands">
         <div class="container">
             <h3>Top Brands</h3>
             <div class="sliderfig">
-                <ul id="flexiselDemo1">         
-                    <li>
-                        <img src="{{ asset('web') }}/images/4.png" alt=" " class="img-responsive" />
-                    </li>
-                    <li>
-                        <img src="{{ asset('web') }}/images/5.png" alt=" " class="img-responsive" />
-                    </li>
-                    <li>
-                        <img src="{{ asset('web') }}/images/6.png" alt=" " class="img-responsive" />
-                    </li>
-                    <li>
-                        <img src="{{ asset('web') }}/images/7.png" alt=" " class="img-responsive" />
-                    </li>
-                    <li>
-                        <img src="{{ asset('web') }}/images/46.jpg" alt=" " class="img-responsive" />
-                    </li>
+                <ul id="flexiselDemo1">   
+                    @foreach($all_brands as $brand)
+                    <li> 
+                        <a href="{{ url('/brand')}}/{{slug($brand->name)}}">
+                            <img src="{{ asset('/') }}/uploads/brand/{{ $brand->img }}" alt=" " class="img-responsive" />
+                        </a> 
+                    </li> 
+                    @endforeach
+
                 </ul>
             </div>
                     <script type="text/javascript">

@@ -1,1 +1,1 @@
-<a href="product/{{ $id }}" >{{$name}}</a>
+<a href="{{url('/product')}}/{{ $id }}" >{{$name}}</a>

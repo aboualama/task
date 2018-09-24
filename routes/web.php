@@ -47,6 +47,10 @@ Route::group(['middleware' => 'setting:e_commerce'] , function(){
 	
 	Route::group(['middleware' => 'setting:category'] , function(){  
 		Route::get('/category/{name}/{srot?}', 'categorycontroller@show'); 
+		Route::get('/Category/clothing', 'categorycontroller@clothing'); 
+		Route::get('/Category/shoes', 'categorycontroller@shoes'); 
+		Route::get('/Category/watches', 'categorycontroller@watches'); 
+
 	}); 
  
 	Route::group(['middleware' => 'setting:product'] , function(){  
@@ -61,6 +65,10 @@ Route::group(['middleware' => 'setting:e_commerce'] , function(){
 
 		Route::group(['middleware' => 'setting:registration'] , function(){	
 			Route::get('/checkout', 'cartcontroller@checkout');
+		}); 
+
+		Route::group(['middleware' => 'setting:brand'] , function(){	
+			Route::get('/brand/{name}', 'categorycontroller@brand'); 
 		}); 
 
 		Route::post('/products/search', 'Admin\productcontroller@search');

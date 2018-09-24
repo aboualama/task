@@ -105,38 +105,7 @@
             </div>
         </div>
     </div>   
-
-{{-- 
-
-
-                        <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
-                            <div class="agile_ecommerce_tab_left dresses_grid">
-                                <div class="hs-wrapper hs-wrapper2">
-                                    <img src="{{ asset('web') }}/images/j2.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j3.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j4.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j5.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j6.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j7.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j8.jpg" alt=" " class="img-responsive" />
-                                    <img src="{{ asset('web') }}/images/j9.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom w3_hs_bottom_sub1">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Gray Solid Chinos</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                        </div>--}} 
-
-{{-- modal for products products --}}
+ 
 
     @foreach($products as $product)
     <div class="modal video-modal fade" id="myModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal{{$product->id}}">
@@ -151,12 +120,8 @@
                             <img src="{{ asset('web/images') }}/{{$product->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
-                            <h4>a good look black women's jeans  {{$product->name}}</h4>
-                            <p>{{$product->description}} . vv Duis aute irure dolor in 
-                                reprehenderit in voluptate velit esse cillum dolore 
-                                eu fugiat nulla pariatur. Excepteur sint occaecat 
-                                cupidatat non proident, sunt in culpa qui officia 
-                                deserunt mollit anim id est laborum.</p>
+                            <h4> {{$product->name}}</h4>
+                            <p>{{$product->description}} . .</p>
                             <div class="rating">
                                 <div class="rating-left">
                                     <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
@@ -216,7 +181,7 @@
 
 
 
-{{-- related products --}}
+{{-- New products --}}
 
     <div class="w3l_related_products">
         <div class="container">
@@ -232,7 +197,7 @@
                                 <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                                 <div class="w3_hs_bottom">
                                     <div class="flex_ecommerce">
-                                        <a href="{{$newproduct->name}}" data-toggle="modal" data-target="#myModal{{$newproduct->id}}">
+                                        <a href="{{$newproduct->name}}" data-toggle="modal" data-target="#newModal{{$newproduct->id}}">
                                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                         </a>
                                     </div>
@@ -240,7 +205,7 @@
                             </div>
                             <h5><a href="{{url('product')}}/{{$newproduct->id}}">{{$newproduct->name}}</a></h5>
                             <div class="simpleCart_shelfItem">
-                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">$212</i></p>
+                                <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">${{$newproduct->price}}</i></p>
                                 <p><a class="item_add" href="{{url('cart/add')}}/{{$newproduct->id}}">Add to cart</a></p>
                             </div>
                         </div>      
@@ -277,14 +242,12 @@
                 </script>
                 <script type="text/javascript" src="{{ asset('web') }}/js/jquery.flexisel.js"></script>
         </div>
-    </div> 
+    </div>  
 
-
-
-{{-- modal for related products --}}
+{{-- modal for new products --}}
 
     @foreach($new_products as $newproduct) 
-    <div class="modal video-modal fade" id="myModal{{$newproduct->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal{{$newproduct->id}}">
+    <div class="modal video-modal fade" id="newModal{{$newproduct->id}}" tabindex="-1" role="dialog" aria-labelledby="newModal{{$newproduct->id}}">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -296,43 +259,13 @@
                             <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
-                            <h4>a good look women's {{$newproduct->name}}</h4>
-                            <p>{{$newproduct->description}}.Duis aute irure dolor in 
-                                reprehenderit in voluptate velit esse cillum dolore 
-                                eu fugiat nulla pariatur. Excepteur sint occaecat 
-                                cupidatat non proident, sunt in culpa qui officia 
-                                deserunt mollit anim id est laborum.</p>
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star-.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="{{ asset('web') }}/images/star.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                            <h4> {{$newproduct->name}}</h4>
+                            <p>{{$newproduct->description}}. </p>
+   
                             <div class="modal_body_right_cart simpleCart_shelfItem">
-                                <p><span>$320</span> <i class="item_price">${{$newproduct->price}}</i></p>
+                                <p><span>$3110</span> <i class="item_price">${{$newproduct->price}}</i></p>
                                 <p><a class="item_add" href="{{url('cart/add')}}/{{$newproduct->id}}">Add to cart </a></p>
-                            </div>
-                            <h5>Color</h5>
-                            <div class="color-quality">
-                                <ul>
-                                    <li><a href="#"><span></span>Red</a></li>
-                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                </ul>
-                            </div>
+                            </div> 
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -342,7 +275,5 @@
     </div>
     @endforeach
 
- 
-
- 
+  
 @endsection

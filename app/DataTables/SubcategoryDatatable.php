@@ -32,7 +32,7 @@ class SubcategoryDatatable extends DataTable
      * @param \App\subcategory $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(subcategory $model)
+    public function query()
     {
         return subcategory::query()->with('category'); 
     }
