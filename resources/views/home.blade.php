@@ -81,7 +81,7 @@ Home
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">T-Shirt {{$a_tap_pro->id}}</a></h5>
+                                <h5><a href="{{url('product')}}/{{$a_tap_pro->id}}">{{$a_tap_pro->name}} </a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$320</span> <i class="item_price">${{$a_tap_pro->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$a_tap_pro->id}}">Add to cart</a></p>
@@ -110,7 +110,7 @@ Home
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">T-Shirt {{$b_tap_pro->id}}</a></h5>
+                                <h5><a href="{{url('product')}}/{{$b_tap_pro->id}}">{{$b_tap_pro->name}} </a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$320</span> <i class="item_price">${{$b_tap_pro->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$b_tap_pro->id}}">Add to cart</a></p>
@@ -139,7 +139,7 @@ Home
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">T-Shirt {{$c_tap_pro->id}}</a></h5>
+                                <h5><a href="{{url('product')}}/{{$c_tap_pro->id}}">{{$c_tap_pro->name}} </a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$320</span> <i class="item_price">${{$c_tap_pro->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$c_tap_pro->id}}">Add to cart</a></p>
@@ -168,7 +168,7 @@ Home
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">T-Shirt {{$d_tap_pro->id}}</a></h5>
+                                <h5><a href="{{url('product')}}/{{$d_tap_pro->id}}">{{$d_tap_pro->name}} </a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$320</span> <i class="item_price">${{$d_tap_pro->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$d_tap_pro->id}}">Add to cart</a></p>
@@ -197,7 +197,7 @@ Home
                                         </ul>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">T-Shirt {{$e_tap_pro->id}}</a></h5>
+                                <h5><a href="{{url('product')}}/{{$e_tap_pro->id}}">{{$e_tap_pro->name}} </a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$320</span> <i class="item_price">${{$e_tap_pro->price}}</i></p>
                                     <p><a class="item_add" href="{{url('cart/add')}}/{{$e_tap_pro->id}}">Add to cart</a></p>

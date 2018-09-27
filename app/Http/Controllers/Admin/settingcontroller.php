@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\setting; 
 use App\DataTables\SettingDatatable; 
 
-class settingController extends Controller
+class settingcontroller extends Controller
 {
 
  

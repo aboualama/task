@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DataTables\CategoryDataTable;
-use App\Category ;
+use App\DataTables\CategoryDatatable;
+use App\category ;
 
 class categorycontroller extends Controller
 {
@@ -14,7 +14,7 @@ class categorycontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryDataTable $category)
+    public function index(CategoryDatatable $category)
     {
         return $category->render('admin.category.category' , ['title' => 'Category Control']); 
     }

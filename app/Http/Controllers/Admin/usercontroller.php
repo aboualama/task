@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\user;  
 use App\DataTables\UserDatatable;
 
-class userController extends Controller
+class usercontroller extends Controller
 { 
   
     public function index(UserDatatable $user)

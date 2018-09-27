@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DataTables\CommentDataTable;
-use App\Comment ;
+use App\DataTables\commentDataTable;
+use App\comment ;
 use Auth;
 
 class commentcontroller extends Controller

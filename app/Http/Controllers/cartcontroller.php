@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
-use App\Product;
+use App\product;
 
 class cartcontroller extends Controller
 { 
@@ -27,7 +27,7 @@ class cartcontroller extends Controller
 
     public function add($id)
     {
-    	$product = Product::find($id);
+    	$product = product::find($id);
     	Cart::add($id,$product->name,1,$product->price , ['photo' => $product->photo]);
     	return back();
     }

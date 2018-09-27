@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request; 
-use App\Admin;
-class RegisterController extends Controller
+use App\admin;
+class Registercontroller extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ class RegisterController extends Controller
 
     $data['avatar']       =  $avatar_name; 
 
-     return Admin::create([ 
+     return admin::create([ 
                 'name'      => $data['name'],
                 'email'     => $data['email'], 
                 'password'  => bcrypt($data['password']),

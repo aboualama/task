@@ -13,7 +13,7 @@ class product extends Model
 
     
     public function subcategory(){ 
-        return $this->belongsTo(Subcategory::class);
+        return $this->belongsTo(subcategory::class);
     }    
 
     public function brand(){ 
@@ -21,12 +21,12 @@ class product extends Model
     }
 
     public function admin(){
-    	return $this->belongsTo(Admin::class);
+    	return $this->belongsTo(admin::class);
     }
 
-    public function Comments(){
+    public function comments(){
 
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(comment::class);
     }
 }
 

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DataTables\OrderDataTable;
+use App\DataTables\OrderDatatable;
 use App\order;
 use Auth;
 use Storage;
 
-class orderController extends Controller
+class ordercontroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(OrderDataTable $order)
+    public function index(OrderDatatable $order)
     {
         return $order->render('admin.order.order' , ['title' => 'Order Control']); 
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DataTables\SubcategoryDataTable;
-use App\Subcategory;
+use App\DataTables\SubcategoryDatatable;
+use App\subcategory;
 use Storage;
 
 class subcategorycontroller extends Controller
@@ -15,9 +15,9 @@ class subcategorycontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SubcategoryDataTable $product)
+    public function index(SubcategoryDatatable $subcategory)
     {
-        return $product->render('admin.subcategory.subcategory' , ['title' => 'subcategory Control']); 
+        return $subcategory->render('admin.subcategory.subcategory' , ['title' => 'subcategory Control']); 
     }
 
     /**

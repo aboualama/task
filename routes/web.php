@@ -21,8 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'setting:registration'] , function(){ 
 	Auth::routes(); 
 	Route::group(['middleware' => 'activeuser:active'] , function(){
-		Route::get('/user/edit', 'auth\registercontroller@edit');
-		Route::put('/user/edit', 'auth\registercontroller@update'); 
+		Route::get('/user/edit', 'Auth\registerController@edit');
+		Route::put('/user/edit', 'Auth\registerController@update'); 
 	});
 	Route::get('login/{provider}', 'Auth\sociallogincontroller@redirectToProvider');   // $provider if we need many website
 	Route::get('login/{provider}/callback', 'Auth\sociallogincontroller@handleProviderCallback');
@@ -31,8 +31,8 @@ Route::group(['middleware' => 'setting:registration'] , function(){
  
 /////// SETTING MIDDLEWARE ////////// 
 Route::group(['middleware' => 'setting:contact'] , function(){ 
-	Route::get('/contact', 'Admin\contactController@show');
-	Route::post('/contact', 'Admin\contactController@contact'); 
+	Route::get('/contact', 'Admin\contactcontroller@show');
+	Route::post('/contact', 'Admin\contactcontroller@contact'); 
 });
 
 

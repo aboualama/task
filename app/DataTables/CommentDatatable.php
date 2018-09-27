@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Comment;
+use App\comment;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 

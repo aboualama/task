@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use App\social;
 use Storage; 
 use App\DataTables\SocialDatatable; 
 
-class socialController extends Controller
+class socialcontroller extends Controller
 {
 
  

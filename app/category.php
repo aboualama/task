@@ -15,14 +15,14 @@ class category extends Model
 
     public function subcategories(){
 
-	return $this->hasMany(Subcategory::class , 'category_id');
+	return $this->hasMany(subcategory::class , 'category_id');
 	
 	}
 
 
    public function products(){
 
-	return $this->hasManyThrough(Product::class, Subcategory::class);
+	return $this->hasManyThrough(product::class, subcategory::class);
 	
 	}
 }

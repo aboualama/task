@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DataTables\brandDataTable;
+use App\DataTables\BrandDatatable;
 use App\brand;
 use Storage;
 
@@ -15,9 +15,9 @@ class brandcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(brandDataTable $product)
+    public function index(BrandDatatable $brand)
     {
-        return $product->render('admin.brand.brand' , ['title' => 'brand Control']); 
+        return $brand->render('admin.brand.brand' , ['title' => 'brand Control']); 
     }
 
     /**

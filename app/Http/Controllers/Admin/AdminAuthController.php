@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
-use App\Admin; 
+use App\admin; 
 use App\Mail\AdminResetPassword;
 use App\DataTables\AdminDatatable;
 use Carbon\Carbon;
@@ -12,7 +12,7 @@ use DB;
 use Mail;
  
 
-class AdminAuthController extends Controller
+class AdminAuthcontroller extends Controller
 {
 
 	public function index(AdminDatatable $admin)
@@ -46,7 +46,7 @@ class AdminAuthController extends Controller
    
 	public function forgot_password_post() 
 	{
-		$admin = Admin::where('email', request('email'))->first();
+		$admin = admin::where('email', request('email'))->first();
 		if (!empty($admin)) {
 			$token = app('auth.password.broker')->createToken($admin);
 			$data  = DB::table('password_resets')->insert([
@@ -72,7 +72,7 @@ class AdminAuthController extends Controller
 			]);
 		$check_token = DB::table('password_resets')->where('token', $token)->where('created_at', '>', Carbon::now()->subHours(2))->first();
 		if (!empty($check_token)) {
-			$admin = Admin::where('email', $check_token->email)->update([
+			$admin = admin::where('email', $check_token->email)->update([
 					'email'    => $check_token->email,
 					'password' => bcrypt(request('password'))
 				]);
