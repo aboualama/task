@@ -29,7 +29,7 @@ class cartcontroller extends Controller
     {
     	$product = product::find($id);
     	Cart::add($id,$product->name,1,$product->price , ['photo' => $product->photo]);
-    	return back();
+        return response()->json();
     }
 
     public function update(Request $r)

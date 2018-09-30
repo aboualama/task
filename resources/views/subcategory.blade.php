@@ -113,7 +113,10 @@
                                 <h5><a href="{{url('product')}}/{{$product->id}}">{{$product->name}}</a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$420</span> <i class="item_price">{{$product->price}}</i></p>
-                                    <p><a class="item_add" href="{{url('cart/add')}}/{{$product->id}}">Add to cart</a></p>
+
+                                    if(Cart::content() )
+                                    <p><a class="item_add{{$product->id}}" href="#" >Add to cart</a></p> 
+                                    <p class="item_added{{$product->id}} alert-success" > Done ... Added to cart  </p> 
                                 </div>
                                 @if($product->created_at > Carbon\Carbon::now()->subDays(7))
                                     <div class="dresses_grid_pos">
@@ -132,6 +135,39 @@
         </div>
     </div>   
 
+                    <script>
+
+                    $(document).ready(function() {  
+                      $.ajaxSetup({
+                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+                          }); 
+
+                        $(".item_added{{$product->id}}").hide(); 
+                        @foreach($products as $product)  
+               
+                        $(".item_added{{$product->id}}").hide(); 
+                            $('.item_add{{$product->id}}').on( 'click' , (function(event) {  
+                                event.preventDefault()  ;
+                                var Id = $("#productId{{$product->id}}").val(); 
+                                $.ajax({
+                                    url:  '{{url('cart/add')}}/{{$product->id}}',
+                                    type: 'GET', 
+                                    data:  { id: Id }, 
+                                    success: function(response)
+                                        { 
+                                            $(".item_add{{$product->id}}").fadeOut(400, function() { 
+                                                $(".item_added{{$product->id}}").fadeIn(400); 
+                                            }); 
+                                            console.log('done')
+                                        },  
+                                    })  
+                            }));   
+
+               
+                        @endforeach 
+                    });
+
+                    </script>
  
 
 {{-- modal for subcategory products --}}
@@ -211,7 +247,7 @@
                     <div class="w3l_related_products_grid">
                         <div class="agile_ecommerce_tab_left dresses_grid">
                             <div class="hs-wrapper3" style="position: relative;  margin: 0 auto; overflow: hidden;"> 
-                                <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
+                                <img src="{{ asset('uploads/product') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                                 <div class="w3_hs_bottom">
                                     <div class="flex_ecommerce">
                                         <a href="{{$newproduct->name}}" data-toggle="modal" data-target="#newModal{{$newproduct->id}}">
@@ -272,7 +308,7 @@
                 <section>
                     <div class="modal-body">
                         <div class="col-md-5 modal_body_left">
-                            <img src="{{ asset('web/images') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
+                            <img src="{{ asset('uploads/product') }}/{{$newproduct->photo}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-7 modal_body_right">
                             <h4> {{$newproduct->name}}</h4>
